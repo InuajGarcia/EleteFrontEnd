@@ -1,0 +1,16 @@
+
+div {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+buttom{
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer
+}
