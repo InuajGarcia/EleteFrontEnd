@@ -1,6 +1,12 @@
-
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
+import { Cormorant_Garamond } from "next/font/google";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Elete Carsales",
@@ -10,19 +16,20 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
+  /* Children el encargado de mostrar las diferentes Paginas */
   children: React.ReactNode;
 }>) {
   return (
     <html lang="es">
-      <body>
+      <body className={cormorant.className}>
         <header>
           <h2>ELETE CARSALES</h2>
 
           <nav>
-            <a href="/">Inicio</a>
-            <a href="/inventario">Inventario</a>
-            <a href="/servicios">Servicios</a>
-            <a href="/nosotros">Nosotros</a>
+            <Link href="/">Inicio</Link>
+            <Link href="/inventario">Inventario</Link>
+            <Link href="/servicios">Servicios</Link>
+            <Link href="/nosotros">Nosotros</Link>
           </nav>
         </header>
 

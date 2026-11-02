@@ -1,10 +1,17 @@
-export default function Home () {
+
+export default function Home() {
   return (
     <main>
-      <h1> Elete Car Sales </h1>
-      <p> Welcome </p>
+      <h1>BIENVENIDO A ELETE CARSALES</h1>
 
-      <button> Ver inventario </button>
+      <p>Excelencia, potencia y prestigio.</p>
+
+      <button>Ver inventario</button>
+
+      <img
+        src="/images/paginaPrincipal1.png"
+        alt="Vehiculo destacado"
+      />
     </main>
-  )
+  );
 }
