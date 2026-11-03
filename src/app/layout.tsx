@@ -38,7 +38,7 @@ export default function RootLayout({
 
           {/* Menu */}
           <nav className="navbar-links">
-            <Link href="/">Inicio</Link>
+            <Link href="/inicio">Inicio</Link>
             <Link href="/inventario">Inventario</Link>
             <Link href="/servicios">Servicio</Link>
             <Link href="/nosotros">Nosotros</Link>
