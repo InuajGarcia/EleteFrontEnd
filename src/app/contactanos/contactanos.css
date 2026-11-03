@@ -1,0 +1,202 @@
+.contact-page {
+    min-height: 100vh;
+    padding-bottom: 40px;
+    background: #050505;
+    color: #fff;
+}
+
+/* Principal */
+
+.hero {
+    position: relative;
+    padding: 40px 24px 28px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-car {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    max-width: 30%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.hero-subtitle {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+}
+
+.contact-page h1 {
+    margin: 2px 0 6px;
+    font-size: clamp(48px, 7vw, 76px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #d4a62a;
+}
+
+.hero-text {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* Paneles */
+
+.contact-panels {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+}
+
+.contact-info,
+.contact-form {
+    background: #0e0e0e;
+    border: 1px solid rgba(212, 166, 42, 0.35);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.contact-info h2,
+.contact-form h2 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: #d4a62a;
+}
+
+.contact-info p {
+    margin: 0 0 16px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #cfc9b6;
+}
+
+/* Informacion */
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.info-icon {
+    width: 28px;
+    height: 28px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border: 1px solid #d4a62a;
+    border-radius: 50%;
+    font-size: 13px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #d4a62a;
+}
+
+.info-item small {
+    font-size: 11px;
+    color: #cfc9b6;
+}
+
+/* Formulario */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: #d4a62a;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    background: #3a3a3a;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 11px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #d4a62a;
+}
+
+.contact-form ::placeholder {
+    color: #9a9a9a;
+}
+
+.form-logo {
+    height: 40px;
+    align-self: center;
+}
+
+/* Boton */
+
+.gold-button {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 28px;
+    background: #000;
+    border: 1px solid #d4a62a;
+    border-radius: 4px;
+    color: #d4a62a;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.gold-button:hover {
+    background: #d4a62a;
+    color: #111;
+}
+
+/* Celular */
+
+@media (max-width: 760px) {
+
+    .contact-panels {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-car {
+        display: none;
+    }
+
+}

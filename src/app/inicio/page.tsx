@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import "./inicio.css";
 
@@ -53,7 +52,7 @@ export default function Inicio() {
                     </Link>
 
                     <Link href="/contactanos" className="gold-button">
-                        CONTACTO <span>☎</span>
+                        CONTACTO <span></span>
                     </Link>
 
                 </div>
