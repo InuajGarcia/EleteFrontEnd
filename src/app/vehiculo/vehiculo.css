@@ -1,0 +1,113 @@
+/* Contenedor de la pagina */
+
+.home-page{
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* Configuraciones de FONDO */
+.hero {
+    min-height: 650;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: left;
+
+    padding: 80px 20px;
+
+    background:
+        url("/images/vehiculoFondo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Configuraciones de texto */
+.hero h1 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: -8px;
+    margin-bottom: 0px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.flag {
+    width: cover;
+    height: cover;
+
+    background-color: #dedede;
+    padding: 30px;
+}
+
+.hero h2{
+    font-size: 18px;
+    letter-spacing: normal;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: fff;
+}
+
+
+/* Botones */
+
+.gold-button {
+    background-color: #bf8f2857;
+    color: #101114;
+
+    padding: 14px 25px;
+    border-radius: 6px;
+    
+    margin-top: 34%;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.gold-button:hover {
+    background-color: #BF8F28;
+    transform: translateY(-2px);
+}
+
+.information-panel {
+    width: 1200px;
+    height: 600px;
+    margin-top: 500px;    
+
+    background-color: #171515;
+    border-color: #564115;
+
+    border-width: 1px;
+    border-radius: 30px;
+    padding: 25px;
+}
+
+
+/* Mediaa */
+
+@Media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}
+
+@Media (max-width: 480px) {
+
+    .hero-buttons{
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+    }
+}
