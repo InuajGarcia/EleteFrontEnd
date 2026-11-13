@@ -7,14 +7,19 @@ export default function vehiculo() {
             <section className="hero">
 
                 <div className="information-panel">
-                    <h1> Nombre del carro </h1>
+
+                    <div className="double-object">
+                        <h1> Nombre del carro </h1>
+                        <div className="flag"></div>
+                    </div>
 
                     <h2> Informacion del carro </h2>
                     
 
-                    <button className="gold-button"> Comprar </button>
-
-                </div>
+                    <div className="double-object"></div>
+                        <button className="gold-button"> Comprar </button>
+                        <button className="gold-button"> Ver Repuestos </button>
+                    </div>
 
 
             </section> 
