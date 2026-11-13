@@ -1,0 +1,138 @@
+/* CONFIGURACION AUN MAS ESPECIFICA DE LA PAGINA */
+
+/* 1. Contenedor general de la pagina */
+.home-page{
+    width: 100%;
+    min-height: 100%
+}
+
+/* 2. Seccion principal */
+    /* Configuracion del Fondo de la Seccion Principal*/
+.hero{
+    min-height: 650;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: left;
+
+    padding: 80px 20px;
+
+    background:
+        url("/images/informacionUsuarioFondo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+    /*Texto de la Seccion Principal */
+.hero-subtitle {
+    color: --var(--acento);
+    letter-spacing: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+    /*Textos h1*/
+.hero h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin: 30px 0;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    color: #cea82b;
+    font-weight: bold;
+}
+
+.hero-description {
+    color: white;
+    font-size: 16px;
+    letter-spacing: 5px;
+}
+
+    /* Botones de la Seccion Principal */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 35;
+}
+
+.textoInformacion{
+    font-size: 16px;
+    letter-spacing: 14px;
+    color: #dedede;
+}
+
+/* 2. Estilos Adicionales */
+
+    /* Estilo del Boton */
+.gold-button {
+    background-color: var(--acento);
+    color: #101114;
+
+    padding: 14px 25px;
+    border-radius: 6px;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+    /* Boton Accionado */
+.gold-button:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+    /* Panel de informacion */
+.information-panel {
+    width: 800px;
+    height: 600px;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    border-radius: 12px;
+    padding: 30px;
+}
+    /* Simulacion de foto de perfil*/
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    background-color: #dedede;
+
+    border-radius: 50%;
+}
+
+/* 3. Adaptar la pagina a distintos dispositivos*/
+
+@Media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}
+
+@Media (max-width: 480px) {
+
+    .hero-buttons{
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+    }
+}
