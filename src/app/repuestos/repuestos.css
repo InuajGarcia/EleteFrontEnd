@@ -1,0 +1,111 @@
+/* Contenedoor*/
+.home-page{
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* Fondo */
+.hero {
+    min-height: 650;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: left;
+
+    padding: 80px 20px;
+
+    background: #141414;
+}
+
+.hero h1 {
+    font-size: 32;
+    letter-spacing: 2px;
+    color: #BF8F28;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.information-panel {
+    width: 1200px;
+    height: 600px;
+
+    background-color: #141414;
+    border-color: #564115;
+
+    border-width: 1px;
+    border-radius: 30px;
+    padding: 25px;
+}
+
+
+/* Para los contenedores */
+
+.car-container {
+    margin-top: 30px;
+    margin-left: 16px;
+
+    width: 240px;
+    height: 320px;
+    
+    background-color: #1a1816;
+    border-color: #dedede;
+    padding: 25px;
+
+    border-width: 0.25px;
+}
+
+.hero h3 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.hero h4 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #BF8F28;
+}
+
+.gold-button {
+    background-color: #bf8f2857;
+    color: #101114;
+
+    padding: 14px 25px;
+    border-radius: 6px;
+    
+    margin-top: 34%;
+    margin-right: 40px;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.gold-button:hover {
+    background-color: #BF8F28;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+.catalogue {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    align-items: center;
+}
