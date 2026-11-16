@@ -11,47 +11,47 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
 
     text-align: left;
 
     padding: 80px 20px;
 
-    background: #141414;
+    background: 
+        url("/images/repuestosFondo.png");
 }
 
 .hero h1 {
     font-size: 32;
     letter-spacing: 2px;
-    color: #BF8F28;
+    color: #fff;
     font-weight: bold;
-    margin-left: 8px;
+    margin-left: 34px;
+    margin-top: 10px;
 }
 
 .hero h2 {
     font-size: 28px;
     letter-spacing: 2px;
     color: #fff;
+    margin-left: 34px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .information-panel {
-    width: 1200px;
-    height: 600px;
+    width: 1860px;
+    height: 80%px;
 
-    background-color: #141414;
-    border-color: #564115;
-
-    border-width: 1px;
-    border-radius: 30px;
-    padding: 25px;
+    background-color: transparent;
 }
 
 
 /* Para los contenedores */
 
-.car-container {
-    margin-top: 30px;
+.spare-parts-container {
+    margin-top: -5px;
     margin-left: 16px;
 
     width: 240px;
@@ -98,7 +98,15 @@
 }
 
 
+.text-container {
+    width: 1901px;
+    height: 130px;
 
+    background-color: #141414;
+    margin-top: -80px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+}
 
 
 
@@ -106,6 +114,8 @@
 .catalogue {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 110px;
     align-items: center;
+    margin-top: 15px;
+    
 }
