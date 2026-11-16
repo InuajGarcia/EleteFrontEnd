@@ -1,0 +1,137 @@
+/* Contenedor */
+.home-page{
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* Fondo */
+.hero {
+    min-height: 650;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    text-align: left;
+
+    padding: 80px 20px;
+
+    background: 
+        url("/images/loginregisterFondo.png");       
+
+}
+
+
+/* Config de texto */
+.hero h1 {
+    font-size: 70px;
+    letter-spacing: 25px;
+    margin-top: -8px;
+    margin-bottom: 0px;
+    color: #F7F0D4;
+    font-weight: bold;
+}
+
+.hero h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-top: -8px;
+    margin-bottom: 0px;
+    color: #F7F0D4;
+    font-weight: 1px;
+}
+
+.information-panel {
+    width: 980px;
+    height: 1120px;    
+    margin-left: 900px;
+    margin-top: -210px;
+
+
+    background-color: #171515;
+
+    padding: 25px;
+}
+
+/* Espacio para acumular 2 objetos*/
+.dual-space {
+    display: flex;
+    flex-direction: column;
+
+    width: 700px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.login-box {
+    width: 100%;
+    height: 45px;
+
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #dedede;
+
+    color: #fff;
+    font-size: 18px;
+
+    outline: none;
+
+    margin-bottom: 30px;
+
+}
+
+.hero h3 {
+    font-size: 42px;
+    color: #fff;
+    
+    margin-top: 200px;
+    margin-bottom: 20px;
+}
+
+.hero h4 {
+    font-size: 18px;
+    color: #fff;
+}
+
+
+    /* Registrate */
+.hero h5 {
+    font-size: 20px;
+    color: #fff;
+}
+
+.hero h6 {
+    font-size: 20px;
+    color: #DFBA3E;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.key-button{
+    background-color: #dedede;
+    color: #141414;
+    
+    padding: 14px 25px;
+    border-radius: 6px;
+    
+    margin-top: -10px;
+    margin-left: 260px;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.double-object{
+    display: flex;
+}
+
+
+.gold-button:hover {
+    background-color: #FFEDA5;
+    transform: translateY(-2px);
+}
+
