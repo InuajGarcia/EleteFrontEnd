@@ -20,7 +20,7 @@ export default function login(){
 
                     <div className="dual-space">
 
-                        <h4> Correo Electronico </h4>
+                        <h4> Correo Electrónico </h4>
                         <input 
                             className="login-box"
                             type="email"
@@ -46,9 +46,9 @@ export default function login(){
 
                     <div className="double-object">
 
-                        <h5> No tienes cuenta todavia? </h5>
-                        <h6> Registrate </h6>
-                        <h5> aqui </h5>
+                        <h5> No tienes cuenta todavía? </h5>
+                        <h6> Regístrate </h6>
+                        <h5> aquí </h5>
                         <button className="key-button"> Continuar </button>
 
                     </div>                    
