@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { Cormorant_Garamond, Oswald } from "next/font/google";
+import Navbar from "./components/navbar";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -29,31 +30,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${cormorant.className} ${oswald.variable}`}>
 
-        <header className="navbar">
-
-          {/* Logo */}
-          <img src="/images/eleteLogo.jpg" alt="Eleté" />
-
-          {/* Menu */}
-          <nav className="navbar-links">
-            <Link href="/inicio">Inicio</Link>
-            <Link href="/inventario">Inventario</Link>
-            <Link href="/servicios">Servicio</Link>
-            <Link href="/nosotros">Nosotros</Link>
-            <Link href="/contactanos">Contacto</Link>
-          </nav>
-
-          {/* Usuario */}
-          <Link href="informacionUsuario" className="navbar-perfil">
-            <button className="navbar-user" aria-label="Cuenta">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z" />
-              </svg>
-            </button>
-          </Link>
-
-        </header>
+        <Navbar />
 
         <main>
           {children}
