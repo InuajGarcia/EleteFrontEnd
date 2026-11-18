@@ -32,9 +32,7 @@ export default function RootLayout({
         <header className="navbar">
 
           {/* Logo */}
-          <Link href="/" className="navbar-logo">
-            <img src="/images/logo.png" alt="Eleté" />
-          </Link>
+          <img src="/images/eleteLogo.jpg" alt="Eleté" />
 
           {/* Menu */}
           <nav className="navbar-links">
@@ -46,12 +44,14 @@ export default function RootLayout({
           </nav>
 
           {/* Usuario */}
-          <button className="navbar-user" aria-label="Cuenta">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-              <circle cx="12" cy="8" r="4" />
-              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z" />
-            </svg>
-          </button>
+          <Link href="informacionUsuario" className="navbar-perfil">
+            <button className="navbar-user" aria-label="Cuenta">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z" />
+              </svg>
+            </button>
+          </Link>
 
         </header>
 

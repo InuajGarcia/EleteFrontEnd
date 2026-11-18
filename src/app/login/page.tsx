@@ -47,10 +47,17 @@ export default function login(){
                     <div className="double-object">
 
                         <h5> No tienes cuenta todavía? </h5>
-                        <h6> Regístrate </h6>
-                        <h5> aquí </h5>
-                        <button className="key-button"> Continuar </button>
 
+                        <Link href="/register" className="register-link">
+                            <h6> Regístrate </h6>
+                        </Link>
+                        
+                        <h5> aquí </h5>
+
+                        <Link href="/inicio" className="inicio-link">
+                            <button className="key-button"> Continuar </button>
+                        </Link>
+                        
                     </div>                    
 
                 </div>

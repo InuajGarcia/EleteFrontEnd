@@ -45,8 +45,9 @@ export default function register(){
 
 
                     <div className="double-object">
-
-                        <button className="key-button"> Continuar </button>
+                        <Link href="/login" className="login-link">
+                            <button className="key-button"> Continuar </button>
+                        </Link>
 
                     </div>                    
 
