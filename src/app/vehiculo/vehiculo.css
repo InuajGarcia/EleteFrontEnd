@@ -8,7 +8,7 @@
 
 /* Configuraciones de FONDO */
 .hero {
-    min-height: 650;
+    min-height: 650px;
 
     display: flex;
     flex-direction: column;
