@@ -5,12 +5,12 @@ import "./servicios.css";
 const servicios = [
     {
         titulo: "REPUESTOS",
-        icono: "/images/icono-repuestos.png",
+        icono: "/images/iconoRepuestos.png",
         texto: "Accede a las piezas originales y de alta calidad para tu vehículo."
     },
     {
         titulo: "ASESORÍA",
-        icono: "/images/icono-asesoria.png",
+        icono: "/images/iconoAsesoria.png",
         texto: "Comunícate directamente con un especialista."
     },
     {
