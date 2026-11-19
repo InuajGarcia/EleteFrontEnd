@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import "./globals.css";
 import { Cormorant_Garamond, Oswald } from "next/font/google";
@@ -30,7 +31,10 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${cormorant.className} ${oswald.variable}`}>
 
-        <Navbar />
+        {/* Suspense: el navbar lee la ruta actual (usePathname) y las rutas dinámicas lo exigen */}
+        <Suspense fallback={null}>
+          <Navbar />
+        </Suspense>
 
         <main>
           {children}

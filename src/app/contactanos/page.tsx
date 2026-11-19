@@ -1,4 +1,5 @@
 import styles from "./contactanos.module.css";
+import FormularioContacto from "./FormularioContacto";
 
 /* Datos de contacto */
 const datos = [
@@ -87,47 +88,9 @@ export default function Contactanos() {
                 </div>
 
 
-                {/* Formulario */}
+                {/* Formulario (envía POST /contacto al backend) */}
 
-                <form className={styles["contact-form"]}>
-
-                    <h2>ENVÍANOS UN MENSAJE</h2>
-
-                    <div className={styles["form-row"]}>
-
-                        <label>
-                            NOMBRE COMPLETO
-                            <input type="text" placeholder="Tu nombre completo" />
-                        </label>
-
-                        <label>
-                            EMAIL
-                            <input type="email" placeholder="tucorreo@email.com" />
-                        </label>
-
-                    </div>
-
-                    <label>
-                        TELÉFONO
-                        <input type="tel" placeholder="+57 300 000 0000" />
-                    </label>
-
-                    <label>
-                        MENSAJE
-                        <textarea rows={4} placeholder="¿En qué podemos ayudarte?" />
-                    </label>
-
-                    <img
-                        className={styles["form-logo"]}
-                        src="/images/logo.png"
-                        alt="Eleté"
-                    />
-
-                    <button type="submit" className={styles["gold-button"]}>
-                        ENVIAR MENSAJE <span>➤</span>
-                    </button>
-
-                </form>
+                <FormularioContacto />
 
             </section>
 
