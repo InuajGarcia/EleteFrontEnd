@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./repuestos.css"
+import styles from "./repuestos.module.css";
 
 export default function repuestos () {
 
@@ -7,9 +7,9 @@ export default function repuestos () {
 
         <section className="repuestos">
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
-                <div className="text-container">
+                <div className={styles["text-container"]}>
 
                     <h1> Repuestos </h1>
 
@@ -17,21 +17,21 @@ export default function repuestos () {
 
                 </div>
 
-                <div className="information-panel">
+                <div className={styles["information-panel"]}>
 
-                    <div className="catalogue">
+                    <div className={styles["catalogue"]}>
 
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
 
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
-                        <div className="spare-parts-container"></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
+                        <div className={styles["spare-parts-container"]}></div>
 
                 </div>
 

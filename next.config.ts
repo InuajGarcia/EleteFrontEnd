@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   turbopack: {
     rules: {
-      "globals.css": {
+      "*globals.css": {
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },

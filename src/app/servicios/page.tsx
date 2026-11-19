@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import "./servicios.css";
+import styles from "./servicios.module.css";
 
 const servicios = [
     {
@@ -27,9 +27,9 @@ const servicios = [
 
 export default function Servicios() {
     return (
-        <div className="homepage">
+        <div className={styles["homepage"]}>
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
                 <h1>
                     SERVICIOS
@@ -45,14 +45,14 @@ export default function Servicios() {
 
             </section>
 
-            <section className="servicios-page">
+            <section className={styles["servicios-page"]}>
 
-                <div className="servicios-grid">
+                <div className={styles["servicios-grid"]}>
 
                     {servicios.map((s) => (
 
                         <article
-                            className="servicio-card"
+                            className={styles["servicio-card"]}
                             key={s.titulo}
                         >
 
@@ -77,7 +77,7 @@ export default function Servicios() {
 
                 <Link
                     href="/contactanos"
-                    className="servicios-cta"
+                    className={styles["servicios-cta"]}
                 >
                     CONTACTAR ASESOR
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./register.css"
+import styles from "./register.module.css";
 
 export default function register(){
 
@@ -7,22 +7,22 @@ export default function register(){
 
         <div className="register">
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
                 <h1> ELETÉ </h1>
 
                 <h2> LUJO • POTENCIA • PRESTIGIO </h2>
 
 
-                <div className="information-panel">
+                <div className={styles["information-panel"]}>
 
                     <h3> Registro </h3>
 
-                    <div className="dual-space">
+                    <div className={styles["dual-space"]}>
 
                         <h4> Correo Electronico </h4>
                         <input 
-                            className="login-box"
+                            className={styles["login-box"]}
                             type="email"
 
                         />
@@ -32,11 +32,11 @@ export default function register(){
 
 
 
-                    <div className="dual-space">
+                    <div className={styles["dual-space"]}>
 
                         <h4> Contraseña </h4>
                         <input
-                            className="login-box" 
+                            className={styles["login-box"]} 
                             type="text"
                         />
 
@@ -44,9 +44,9 @@ export default function register(){
 
 
 
-                    <div className="double-object">
+                    <div className={styles["double-object"]}>
                         <Link href="/login" className="login-link">
-                            <button className="key-button"> Continuar </button>
+                            <button className={styles["key-button"]}> Continuar </button>
                         </Link>
 
                     </div>                    

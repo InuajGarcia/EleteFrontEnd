@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./inicio.css";
+import styles from "./inicio.module.css";
 
 /* Adaptar Carros */
 const carros = [
@@ -29,28 +29,28 @@ export default function inicio() {
 
     return (
 
-        <div className="home-page">
+        <div className={styles["home-page"]}>
 
             {/* Principal */}
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
                 <h1> EXCELENCIA </h1>
                 
 
                 <h2>ELETÉ</h2>
 
-                <p className="hero-description">
+                <p className={styles["hero-description"]}>
                     LUJO · POTENCIA · PRESTIGIO
                 </p>
 
-                <div className="hero-buttons">
+                <div className={styles["hero-buttons"]}>
 
-                    <Link href="/inventario" className="gold-button">
+                    <Link href="/inventario" className={styles["gold-button"]}>
                         VER INVENTARIO <span>➜</span>
                     </Link>
 
-                    <Link href="/contactanos" className="gold-button">
+                    <Link href="/contactanos" className={styles["gold-button"]}>
                         CONTACTO <span></span>
                     </Link>
 
@@ -61,13 +61,13 @@ export default function inicio() {
 
             {/* Seccion de vehiculos */}
 
-            <section className="featured-cars">
+            <section className={styles["featured-cars"]}>
 
                 {carros.map((carro) => (
 
-                    <div className="car-card" key={carro.nombre}>
+                    <div className={styles["car-card"]} key={carro.nombre}>
 
-                        <div className="car-image">
+                        <div className={styles["car-image"]}>
 
                             <img
                                 src={carro.imagen}

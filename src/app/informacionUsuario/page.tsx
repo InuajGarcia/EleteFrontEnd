@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./informacionUsuario.css";
+import styles from "./informacionUsuario.module.css";
 
 /* Contenido y texto de la pagina */
 
@@ -9,29 +9,29 @@ export default function informacionUsuario() {
 
         <div className ="informacionUsuario">
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
-                <div className="information-panel">
+                <div className={styles["information-panel"]}>
                 
                     <h2> Informacion de Usuario </h2>
 
 
-                    <div className="profile-picture"> </div>                    
+                    <div className={styles["profile-picture"]}> </div>                    
 
 
-                    <h1 className="textoInformacion">
+                    <h1 className={styles["textoInformacion"]}>
                     Correo Electronico:
                     </h1>
 
-                    <h1 className="textoInformacion">
+                    <h1 className={styles["textoInformacion"]}>
                     Nombre y Apellidos: 
                     </h1>
 
-                    <h1 className="textoInformacion">
+                    <h1 className={styles["textoInformacion"]}>
                     Contraseña: 
                     </h1>
 
-                    <h1 className="textoInformacion">
+                    <h1 className={styles["textoInformacion"]}>
                     Numero Telefonico:
                     </h1>
 

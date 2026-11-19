@@ -37,8 +37,8 @@
 }
 
 .flag {
-    width: 55;
-    height: 20;
+    width: 55px;
+    height: 20px;
     
     margin-left: 12px;
     background-color: #dedede;
@@ -50,7 +50,7 @@
     letter-spacing: normal;
     margin-top: 25px;
     margin-bottom: 20px;
-    color: fff;
+    color: #fff;
 }
 
 
@@ -99,7 +99,7 @@
 
 /* Mediaa */
 
-@Media (max-width: 768px) {
+@media (max-width: 768px) {
 
     .hero h1 {
         font-size: 55px;
@@ -111,7 +111,7 @@
     }
 }
 
-@Media (max-width: 480px) {
+@media (max-width: 480px) {
 
     .hero-buttons{
         flex-direction: column;

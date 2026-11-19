@@ -30,7 +30,7 @@
     letter-spacing: 25px;
     margin-top: -8px;
     margin-bottom: 0px;
-    color: #fff4ca;
+    color: #F7F0D4;
     font-weight: bold;
 }
 
@@ -40,7 +40,7 @@
     margin-top: -8px;
     margin-bottom: 0px;
     color: #F7F0D4;
-    font-weight: 1px;
+    font-weight: normal;
 }
 
 .information-panel {
@@ -65,10 +65,11 @@
     margin-bottom: 10px;
 }
 
-/* Hover de register utilizando el espacio de dual-space jaja*/
+/* Utilizacion del espacio Dual-Space para alterar hover de Login-Box*/
 .dual-space:hover .login-box{
-    border-bottom: 3px solid #fff1bb;
+    border-bottom: 3px solid #fff4ca;
 }
+
 
 .login-box {
     width: 100%;
@@ -86,7 +87,7 @@
     margin-bottom: 30px;
 
 
-    transition: border-bottom-color 0.3 ease;
+    transition: border-bottom-color 0.3s ease;
 
 }
 
@@ -97,7 +98,7 @@
     margin-top: 200px;
     margin-bottom: 20px;
     font-weight: bold;
-}
+}       
 
 .hero h4 {
     font-size: 18px;
@@ -124,12 +125,13 @@
 .key-button{
     background-color: #dedede;
     color: #141414;
+    font-weight: bold;
     
     padding: 14px 25px;
     border-radius: 6px;
     
     margin-top: -10px;
-    margin-left: 575px;
+    margin-left: 260px;
 
     font-weight: bold;
     letter-spacing: 1px;
@@ -142,7 +144,8 @@
 }
 
 
-.gold-button:hover {
+.key-button:hover {
     background-color: #FFEDA5;
     transform: translateY(-2px);
 }
+

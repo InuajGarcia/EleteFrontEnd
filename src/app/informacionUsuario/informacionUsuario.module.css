@@ -116,7 +116,7 @@
 
 /* 3. Adaptar la pagina a distintos dispositivos*/
 
-@Media (max-width: 768px) {
+@media (max-width: 768px) {
 
     .hero h1 {
         font-size: 55px;
@@ -128,7 +128,7 @@
     }
 }
 
-@Media (max-width: 480px) {
+@media (max-width: 480px) {
 
     .hero-buttons{
         flex-direction: column;

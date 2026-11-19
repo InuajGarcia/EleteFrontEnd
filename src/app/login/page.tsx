@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./login.css"
+import styles from "./login.module.css";
 
 export default function login(){
 
@@ -7,22 +7,22 @@ export default function login(){
 
         <div className="login">
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
                 <h1> ELETÉ </h1>
 
                 <h2> LUJO • POTENCIA • PRESTIGIO </h2>
 
 
-                <div className="information-panel">
+                <div className={styles["information-panel"]}>
 
                     <h3> Iniciar Sesion </h3>
 
-                    <div className="dual-space">
+                    <div className={styles["dual-space"]}>
 
                         <h4> Correo Electrónico </h4>
                         <input 
-                            className="login-box"
+                            className={styles["login-box"]}
                             type="email"
 
                         />
@@ -32,11 +32,11 @@ export default function login(){
 
 
 
-                    <div className="dual-space">
+                    <div className={styles["dual-space"]}>
 
                         <h4> Contraseña </h4>
                         <input
-                            className="login-box" 
+                            className={styles["login-box"]} 
                             type="text"
                         />
 
@@ -44,7 +44,7 @@ export default function login(){
 
 
 
-                    <div className="double-object">
+                    <div className={styles["double-object"]}>
 
                         <h5> No tienes cuenta todavía? </h5>
 
@@ -55,7 +55,7 @@ export default function login(){
                         <h5> aquí </h5>
 
                         <Link href="/inicio" className="inicio-link">
-                            <button className="key-button"> Continuar </button>
+                            <button className={styles["key-button"]}> Continuar </button>
                         </Link>
                         
                     </div>                    

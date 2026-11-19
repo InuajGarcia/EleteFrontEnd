@@ -1,25 +1,27 @@
 import Link from "next/link";
-import "./vehiculo.css"
+import styles from "./vehiculo.module.css";
 
 export default function vehiculo() {
     return (
         <div className="vehiculo">
-            <section className="hero">
+            <section className={styles["hero"]}>
 
-                <div className="information-panel">
+                <div className={styles["information-panel"]}>
 
-                    <div className="double-object">
+                    <div className={styles["double-object"]}>
                         <h1> Nombre del carro </h1>
-                        <div className="flag"></div>
+                        <div className={styles["flag"]}></div>
                     </div>
 
                     <h2> Informacion del carro </h2>
                     
 
-                    <div className="double-object"></div>
-                        <button className="gold-button"> Comprar </button>
-                        <button className="gold-button"> Ver Repuestos </button>
+                    <div className={styles["double-object"]}>
+                        <button className={styles["gold-button"]}> Comprar </button>
+                        <button className={styles["gold-button"]}> Ver Repuestos </button>
                     </div>
+
+                </div>
 
 
             </section> 

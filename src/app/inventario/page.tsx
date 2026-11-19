@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./inventario.css"
+import styles from "./inventario.module.css";
 
 export default function inventario() {
 
@@ -7,13 +7,13 @@ export default function inventario() {
 
         <div className="inventario">
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
-                <div className="information-panel">
+                <div className={styles["information-panel"]}>
 
 
 
-                    <div className="items-spacing">
+                    <div className={styles["items-spacing"]}>
 
                         <h1> VEHICULOS </h1>
                         <h2> DESTACADOS </h2>
@@ -23,21 +23,21 @@ export default function inventario() {
                     <h3> LUJO • POTENCIA • PRESTIGIO </h3>  
 
                     
-                    <div className="catalogue">
+                    <div className={styles["catalogue"]}>
 
-                        <div className="car-container">
-
-                        </div>
-
-                        <div className="car-container">
+                        <div className={styles["car-container"]}>
 
                         </div>
 
-                        <div className="car-container">
+                        <div className={styles["car-container"]}>
 
                         </div>
 
-                        <div className="car-container">
+                        <div className={styles["car-container"]}>
+
+                        </div>
+
+                        <div className={styles["car-container"]}>
 
                         </div>
 

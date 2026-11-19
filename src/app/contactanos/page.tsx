@@ -1,4 +1,4 @@
-import "./contactanos.css";
+import styles from "./contactanos.module.css";
 
 /* Datos de contacto */
 const datos = [
@@ -28,25 +28,25 @@ export default function Contactanos() {
 
     return (
 
-        <div className="contact-page">
+        <div className={styles["contact-page"]}>
 
             {/* Principal */}
 
-            <section className="hero">
+            <section className={styles["hero"]}>
 
                 <img
-                    className="hero-car"
+                    className={styles["hero-car"]}
                     src="/images/auto-contacto.png"
                     alt=""
                 />
 
-                <p className="hero-subtitle">
+                <p className={styles["hero-subtitle"]}>
                     CONTÁCTANOS
                 </p>
 
                 <h1>ELETÉ</h1>
 
-                <p className="hero-text">
+                <p className={styles["hero-text"]}>
                     Estamos aquí para ayudarte a encontrar el vehículo de tus sueños
                 </p>
 
@@ -55,11 +55,11 @@ export default function Contactanos() {
 
             {/* Seccion de contacto */}
 
-            <section className="contact-panels">
+            <section className={styles["contact-panels"]}>
 
                 {/* Informacion */}
 
-                <div className="contact-info">
+                <div className={styles["contact-info"]}>
 
                     <h2>INFORMACIÓN DE CONTACTO</h2>
 
@@ -71,9 +71,9 @@ export default function Contactanos() {
 
                     {datos.map((dato) => (
 
-                        <div className="info-item" key={dato.titulo}>
+                        <div className={styles["info-item"]} key={dato.titulo}>
 
-                            <span className="info-icon">{dato.icono}</span>
+                            <span className={styles["info-icon"]}>{dato.icono}</span>
 
                             <div>
                                 <strong>{dato.titulo}</strong>
@@ -89,11 +89,11 @@ export default function Contactanos() {
 
                 {/* Formulario */}
 
-                <form className="contact-form">
+                <form className={styles["contact-form"]}>
 
                     <h2>ENVÍANOS UN MENSAJE</h2>
 
-                    <div className="form-row">
+                    <div className={styles["form-row"]}>
 
                         <label>
                             NOMBRE COMPLETO
@@ -118,12 +118,12 @@ export default function Contactanos() {
                     </label>
 
                     <img
-                        className="form-logo"
+                        className={styles["form-logo"]}
                         src="/images/logo.png"
                         alt="Eleté"
                     />
 
-                    <button type="submit" className="gold-button">
+                    <button type="submit" className={styles["gold-button"]}>
                         ENVIAR MENSAJE <span>➤</span>
                     </button>
 
