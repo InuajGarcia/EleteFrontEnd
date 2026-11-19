@@ -7,6 +7,8 @@
   --texto: #f5f5f5;
   --textoSecundario: #b8b8b8;
   --acento: #CEA82B;
+  --dorado: #BF8F28;
+  --alto-navbar: 64px;
 }
 
 
@@ -16,18 +18,21 @@
 
 html {
   scroll-behavior: smooth;
+  /* Evita que algo ancho genere scroll horizontal en celular */
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
   min-width: 320px;
-  background-color: var(--fondo);
+  overflow-x: hidden;
+  background-color: #050505;
   color: var(--texto);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-main{
+main {
   max-width: 100%;
   height: auto;
   display: block;
@@ -42,13 +47,13 @@ p {
   line-height: 1.6;
 }
 
-a{
+a {
   color: inherit;
   text-decoration: none;
 }
 
-button{
-    background-color: var(--acento);
+button {
+  background-color: var(--acento);
   color: white;
   border: none;
   border-radius: 8px;
@@ -59,7 +64,7 @@ button{
               transform 0.3s ease;
 }
 
-button:hover{
+button:hover {
   background-color: #cea82b;
   transform: translateY(-2px);
 }
@@ -79,16 +84,7 @@ img {
 }
 
 
-body {
-  margin: 0;
-  background-color: #050505;
-  color: white;
-}
-
-* {
-  box-sizing: border-box;
-}
-
+/* ---------- Navbar ---------- */
 
 .navbar {
   position: sticky;
@@ -99,9 +95,10 @@ body {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 
-  padding: 10px 30px;
+  min-height: var(--alto-navbar);
+  padding: 6px clamp(14px, 3vw, 30px);
 
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(10, 10, 10, 0.88);
   backdrop-filter: blur(6px);
 }
 
@@ -118,17 +115,20 @@ body {
   width: auto;
   object-fit: contain;
   display: block;
+  /* El logo tiene fondo negro: asi se funde con la barra */
+  mix-blend-mode: screen;
 }
 
 .navbar-links {
   display: flex;
-  gap: 60px;
+  gap: clamp(24px, 4vw, 60px);
 }
 
 
 .navbar-links a {
   color: white;
   text-decoration: none;
+  text-transform: uppercase;
 
   font-family: var(--fuente-menu), sans-serif;
   font-size: 15px;
@@ -139,16 +139,26 @@ body {
 }
 
 
-.navbar-links a:hover {
+.navbar-links a:hover,
+.navbar-links a[aria-current="page"] {
   color: var(--acento, #d4a62a);
 }
 
+.navbar-acciones {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-perfil {
+  display: flex;
+}
 
 .navbar-user {
-  justify-self: end;
-
   width: 42px;
   height: 42px;
+  padding: 0;
 
   display: grid;
   place-items: center;
@@ -164,7 +174,51 @@ body {
 }
 
 .navbar-user:hover {
+  background-color: white;
   transform: scale(1.08);
+}
+
+/* Boton de hamburguesa: solo se ve en pantallas chicas */
+.navbar-menu {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background: transparent;
+  border-radius: 6px;
+}
+
+.navbar-menu:hover {
+  background: transparent;
+  transform: none;
+}
+
+.navbar-menu span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.navbar-menu[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-menu[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-menu[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 
@@ -181,17 +235,45 @@ body {
   margin: 0;
 }
 
-@media (max-width: 520px) {
+/* Ubicacion en la barra: logo | links | usuario */
+.navbar-logo { grid-column: 1; grid-row: 1; }
+.navbar-links { grid-column: 2; grid-row: 1; }
+.navbar-acciones { grid-column: 3; grid-row: 1; }
+
+/* Tablet y celular: el menu pasa a ser desplegable */
+@media (max-width: 860px) {
 
   .navbar {
     grid-template-columns: 1fr auto;
   }
 
+  .navbar-menu {
+    display: flex;
+  }
+
+  .navbar-acciones {
+    grid-column: 2;
+  }
+
   .navbar-links {
+    display: none;
+
     grid-column: 1 / -1;
     grid-row: 2;
-    justify-content: center;
-    padding-top: 10px;
+
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 0 10px;
+  }
+
+  .navbar-links.abierto {
+    display: flex;
+  }
+
+  .navbar-links a {
+    padding: 14px 6px;
+    font-size: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
 }

@@ -5,57 +5,60 @@ export default function register(){
 
     return (
 
-        <div className="register">
+        <div className={styles["page"]}>
 
-            <section className={styles["hero"]}>
+            <div className={styles["card"]}>
 
-                <h1> ELETÉ </h1>
+                <section className={styles["hero"]}>
 
-                <h2> LUJO • POTENCIA • PRESTIGIO </h2>
+                    <h1> ELETÉ </h1>
+
+                    <h2> LUJO • POTENCIA • PRESTIGIO </h2>
+
+                </section>
 
 
-                <div className={styles["information-panel"]}>
+                <form className={styles["information-panel"]}>
 
                     <h3> Registro </h3>
 
                     <div className={styles["dual-space"]}>
 
-                        <h4> Correo Electronico </h4>
-                        <input 
+                        <label htmlFor="correo"> Correo Electrónico </label>
+                        <input
+                            id="correo"
                             className={styles["login-box"]}
                             type="email"
-
+                            autoComplete="email"
                         />
 
                     </div>
-
-
-
 
                     <div className={styles["dual-space"]}>
 
-                        <h4> Contraseña </h4>
+                        <label htmlFor="clave"> Contraseña </label>
                         <input
-                            className={styles["login-box"]} 
-                            type="text"
+                            id="clave"
+                            className={styles["login-box"]}
+                            type="password"
+                            autoComplete="new-password"
                         />
 
                     </div>
 
-
-
                     <div className={styles["double-object"]}>
-                        <Link href="/login" className="login-link">
-                            <button className={styles["key-button"]}> Continuar </button>
+
+                        <span />
+
+                        <Link href="/login" className={styles["key-button"]}>
+                            Iniciar Sesión
                         </Link>
 
-                    </div>                    
+                    </div>
 
-                </div>
+                </form>
 
-
-            </section>
-
+            </div>
 
         </div>
     )

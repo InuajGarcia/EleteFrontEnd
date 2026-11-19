@@ -5,66 +5,63 @@ export default function login(){
 
     return (
 
-        <div className="login">
+        <div className={styles["page"]}>
 
-            <section className={styles["hero"]}>
+            <div className={styles["card"]}>
 
-                <h1> ELETÉ </h1>
+                <section className={styles["hero"]}>
 
-                <h2> LUJO • POTENCIA • PRESTIGIO </h2>
+                    <h1> ELETÉ </h1>
+
+                    <h2> LUJO • POTENCIA • PRESTIGIO </h2>
+
+                </section>
 
 
-                <div className={styles["information-panel"]}>
+                <form className={styles["information-panel"]}>
 
-                    <h3> Iniciar Sesion </h3>
+                    <h3> Iniciar Sesión </h3>
 
                     <div className={styles["dual-space"]}>
 
-                        <h4> Correo Electrónico </h4>
-                        <input 
+                        <label htmlFor="correo"> Correo Electrónico </label>
+                        <input
+                            id="correo"
                             className={styles["login-box"]}
                             type="email"
-
+                            autoComplete="email"
                         />
 
                     </div>
-
-
-
 
                     <div className={styles["dual-space"]}>
 
-                        <h4> Contraseña </h4>
+                        <label htmlFor="clave"> Contraseña </label>
                         <input
-                            className={styles["login-box"]} 
-                            type="text"
+                            id="clave"
+                            className={styles["login-box"]}
+                            type="password"
+                            autoComplete="current-password"
                         />
 
                     </div>
-
-
 
                     <div className={styles["double-object"]}>
 
-                        <h5> No tienes cuenta todavía? </h5>
+                        <p className={styles["registro-texto"]}>
+                            ¿No tienes cuenta todavía?{" "}
+                            <Link href="/register">Regístrate</Link> aquí
+                        </p>
 
-                        <Link href="/register" className="register-link">
-                            <h6> Regístrate </h6>
+                        <Link href="/inicio" className={styles["key-button"]}>
+                            Continuar
                         </Link>
-                        
-                        <h5> aquí </h5>
 
-                        <Link href="/inicio" className="inicio-link">
-                            <button className={styles["key-button"]}> Continuar </button>
-                        </Link>
-                        
-                    </div>                    
+                    </div>
 
-                </div>
+                </form>
 
-
-            </section>
-
+            </div>
 
         </div>
     )

@@ -23,12 +23,15 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
     return (
         <div className={styles["information-panel"]}>
 
-            <div className={styles["double-object"]}>
-                <h1> {carro.marca} {carro.modelo} </h1>
-                <div className={styles["flag"]}></div>
-            </div>
+            <h1> {carro.marca} {carro.modelo} </h1>
 
-            <ImagenCarro id={carro.id} alt={`${carro.marca} ${carro.modelo}`} />
+            <div className={styles["car-photo"]}>
+                <ImagenCarro
+                    id={carro.id}
+                    modelo={`${carro.marca} ${carro.modelo}`}
+                    alt={`${carro.marca} ${carro.modelo}`}
+                />
+            </div>
 
             <h2> Informacion del carro </h2>
 
@@ -37,7 +40,7 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
                 {carro.color} · {carro.categoria}
             </p>
             <p>{carro.descripcion}</p>
-            <h2>{formatoPrecio(carro)}</h2>
+            <h2 className={styles["price"]}>{formatoPrecio(carro)}</h2>
             <p>{carro.disponible ? "Disponible" : "No disponible"}</p>
 
             <div className={styles["double-object"]}>

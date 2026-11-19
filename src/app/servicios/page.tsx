@@ -15,12 +15,12 @@ const servicios = [
     },
     {
         titulo: "FINANCIACIÓN",
-        icono: "/images/icono-financiacion.png",
+        icono: "/images/icono-financiacion.svg",
         texto: "Opciones de pago adaptadas a tus necesidades."
     },
     {
         titulo: "VENTA Y COMPRA",
-        icono: "/images/icono-venta.png",
+        icono: "/images/icono-venta.svg",
         texto: "Compra, vende y disfruta del lujo con el respaldo de nuestros especialistas."
     }
 ];
@@ -36,11 +36,11 @@ export default function Servicios() {
                 </h1>
 
                 <h2>
-                    ELETE
+                    ELETÉ
                 </h2>
 
                 <h3>
-                    --------- ATENCION PREMIUM PARA CADA VEHICULO ---------
+                    ATENCIÓN PREMIUM PARA CADA VEHÍCULO
                 </h3>
 
             </section>
@@ -81,7 +81,7 @@ export default function Servicios() {
                 >
                     CONTACTAR ASESOR
 
-                    <span>➜</span>
+                    <span aria-hidden="true">➜</span>
 
                 </Link>
 

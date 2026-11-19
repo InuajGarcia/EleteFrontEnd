@@ -58,7 +58,7 @@ export default function FormularioContacto() {
 
             <img
                 className={styles["form-logo"]}
-                src="/images/logo.png"
+                src="/images/eleteLogo.jpg"
                 alt="Eleté"
             />
 
@@ -67,7 +67,7 @@ export default function FormularioContacto() {
                 className={styles["gold-button"]}
                 disabled={estado === "enviando"}
             >
-                {estado === "enviando" ? "ENVIANDO..." : "ENVIAR MENSAJE"} <span>➤</span>
+                {estado === "enviando" ? "ENVIANDO..." : "ENVIAR MENSAJE"} <span aria-hidden="true">➤</span>
             </button>
 
             {estado === "ok" && <p>¡Mensaje enviado! Te contactaremos pronto.</p>}

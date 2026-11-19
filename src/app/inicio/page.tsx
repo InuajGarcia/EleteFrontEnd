@@ -47,11 +47,11 @@ export default function inicio() {
                 <div className={styles["hero-buttons"]}>
 
                     <Link href="/inventario" className={styles["gold-button"]}>
-                        VER INVENTARIO <span>➜</span>
+                        VER INVENTARIO <span aria-hidden="true">➜</span>
                     </Link>
 
                     <Link href="/contactanos" className={styles["gold-button"]}>
-                        CONTACTO <span></span>
+                        CONTACTO <span aria-hidden="true">✆</span>
                     </Link>
 
                 </div>

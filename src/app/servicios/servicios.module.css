@@ -1,67 +1,88 @@
 .homepage {
     width: 100%;
     min-height: 100%;
+    background: #000;
 }
 
 /* Seccion principal */
 
 .hero {
-    min-height: 650px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    text-align: left;
+    text-align: center;
 
-    padding: 80px 20px;
-    margin-top: -100px;
-    margin-bottom: -85px;
-
+    padding: clamp(36px, 6vw, 70px) 20px 10px;
 }
 
 .hero h1 {
+    margin: 0;
     color: #fff;
-    letter-spacing: 6px;
-    font-size: 48px;
-    font-weight: 10px;
-    margin-bottom: -30px;
+    letter-spacing: clamp(3px, 1vw, 10px);
+    font-size: clamp(28px, 5vw, 56px);
+    font-weight: 300;
 }
 
 .hero h2 {
+    margin: 0;
     color: #DFBA3E;
-    letter-spacing: 12px;
-    font-size: 120px;
+    letter-spacing: clamp(8px, 2.4vw, 30px);
+    padding-left: clamp(8px, 2.4vw, 30px);
+    font-size: clamp(56px, 11vw, 140px);
+    line-height: 1.1;
     font-weight: bold;
-    margin-bottom: -15px;
+    text-shadow: 0 0 26px rgba(223, 186, 62, 0.35);
 }
 
+/* Titulo con lineas a los lados */
 .hero h3 {
+    width: 100%;
+    max-width: 1100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2vw, 28px);
+
+    margin: 0;
+
     color: #DFBA3E;
-    letter-spacing: 4px;
-    font-size: 24px;
-    font-weight: bold;
+    letter-spacing: clamp(1px, 0.5vw, 5px);
+    font-size: clamp(13px, 2.2vw, 26px);
+    font-weight: 400;
+}
+
+.hero h3::before,
+.hero h3::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    min-width: 12px;
+    background: #DFBA3E;
 }
 
 
 /* Orden de servicios */
 
+.servicios-page {
+    padding: clamp(24px, 4vw, 40px) clamp(14px, 4vw, 40px) 40px;
+}
+
 .servicios-grid {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
 
-    margin: 0 auto 48px;
+    margin: 0 auto 44px;
 
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 22px;
 }
 
 .servicio-card {
-    min-height: 260px;
+    min-height: 280px;
 
     padding: 28px 18px;
 
@@ -75,6 +96,7 @@
 
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     gap: 14px;
 
@@ -87,8 +109,8 @@
 }
 
 .servicio-card img {
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
 
     object-fit: contain;
 }
@@ -96,7 +118,7 @@
 .servicio-card h2 {
     margin: 0;
 
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
 
     letter-spacing: 0.08em;
@@ -107,7 +129,7 @@
 .servicio-card p {
     margin: 0;
 
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
 
     color: #cfc9b6;
@@ -116,15 +138,14 @@
 .servicios-cta {
     display: flex;
     width: fit-content;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
 
     align-items: center;
     justify-content: center;
 
     gap: 12px;
 
-    padding: 14px 36px;
+    padding: 16px 48px;
 
     border: 1px solid var(--acento);
     border-radius: 6px;
@@ -133,7 +154,7 @@
 
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 0.1em;
 
     transition: background 0.3s, color 0.3s;
@@ -153,72 +174,22 @@
     transform: translateX(5px);
 }
 
-@media (max-width: 1024px) {
-
-    .servicios-grid {
-        grid-template-columns: repeat(2, 1fr);
-
-        max-width: 700px;
-        gap: 20px;
-    }
-
-    .servicios-header h1 {
-        font-size: 34px;
-    }
-
-}
-
-
 @media (max-width: 600px) {
-
-    .servicios-page {
-        padding: 40px 18px;
-    }
-
-    .servicios-header {
-        margin-bottom: 30px;
-    }
-
-    .servicios-header h1 {
-        font-size: 30px;
-        letter-spacing: 3px;
-    }
-
-    .servicios-lema {
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
 
     .servicios-grid {
         grid-template-columns: 1fr;
-
         max-width: 380px;
-
         gap: 18px;
         margin-bottom: 35px;
     }
 
     .servicio-card {
         min-height: 220px;
-        padding: 25px 20px;
-    }
-
-    .servicio-card img {
-        width: 65px;
-        height: 65px;
-    }
-
-    .servicio-card h2 {
-        font-size: 14px;
-    }
-
-    .servicio-card p {
-        font-size: 12px;
     }
 
     .servicios-cta {
         width: 100%;
-        max-width: 320px;
+        max-width: 380px;
         padding: 14px 20px;
     }
 
