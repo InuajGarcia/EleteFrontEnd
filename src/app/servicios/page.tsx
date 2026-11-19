@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import "./servicios.css";
 
@@ -26,32 +27,63 @@ const servicios = [
 
 export default function Servicios() {
     return (
+        <div className="homepage">
 
-        <div className="Servicios">
-            
             <section className="hero">
 
-                <main className="servicios-page">
-                    <h1> Servicios </h1>
-                    <p className="servicios-lema">ATENCIÓN PREMIUM PARA CADA VEHÍCULO</p>
+                <h1>
+                    SERVICIOS
+                </h1>
 
+                <h2>
+                    ELETE
+                </h2>
 
-                    <section className="servicios-grid">
+                <h3>
+                    --------- ATENCION PREMIUM PARA CADA VEHICULO ---------
+                </h3>
 
-                        
-                        {servicios.map((s) => (
-                            <article className="servicio-card" key={s.titulo}>
-                                <img src={s.icono} alt="" />
-                                <h2>{s.titulo}</h2>
-                                <p>{s.texto}</p>
-                            </article>
-                        ))}
-                    </section>
+            </section>
 
-                    <Link href="/contactanos" className="servicios-cta">
-                        CONTACTAR ASESOR <span>➜</span>
-                    </Link>
-                </main>
+            <section className="servicios-page">
+
+                <div className="servicios-grid">
+
+                    {servicios.map((s) => (
+
+                        <article
+                            className="servicio-card"
+                            key={s.titulo}
+                        >
+
+                            <img
+                                src={s.icono}
+                                alt={s.titulo}
+                            />
+
+                            <h2>
+                                {s.titulo}
+                            </h2>
+
+                            <p>
+                                {s.texto}
+                            </p>
+
+                        </article>
+
+                    ))}
+
+                </div>
+
+                <Link
+                    href="/contactanos"
+                    className="servicios-cta"
+                >
+                    CONTACTAR ASESOR
+
+                    <span>➜</span>
+
+                </Link>
 
             </section>
 

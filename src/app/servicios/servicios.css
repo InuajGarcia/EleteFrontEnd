@@ -1,67 +1,225 @@
-.servicios-page {
-    min-height: 100vh;
-    padding: 56px 24px 48px;
-    background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #050505 65%);
-    text-align: center;
+.homepage {
+    width: 100%;
+    min-height: 100%;
 }
 
+/* Seccion principal */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: left;
+
+    padding: 80px 20px;
+    margin-top: -100px;
+    margin-bottom: -85px;
+
+}
+
+.hero h1 {
+    color: #fff;
+    letter-spacing: 6px;
+    font-size: 48px;
+    font-weight: 10px;
+    margin-bottom: -30px;
+}
+
+.hero h2 {
+    color: #DFBA3E;
+    letter-spacing: 12px;
+    font-size: 120px;
+    font-weight: bold;
+    margin-bottom: -15px;
+}
+
+.hero h3 {
+    color: #DFBA3E;
+    letter-spacing: 4px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Orden de servicios */
+
 .servicios-grid {
-    max-width: 960px;
+    width: 100%;
+    max-width: 1000px;
+
     margin: 0 auto 48px;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 20px;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
 }
 
 .servicio-card {
-    min-height: 250px;
-    padding: 24px 16px;
+    min-height: 260px;
+
+    padding: 28px 18px;
+
     background: #0a0a0a;
-    border: 1px solid var(--dorado);
+
+    border: 1px solid var(--acento);
     border-radius: 10px;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+
+    gap: 14px;
+
+    transition: transform 0.3s, background 0.3s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-7px);
+    background: #151515;
 }
 
 .servicio-card img {
-    width: 72px;
-    height: 72px;
+    width: 75px;
+    height: 75px;
+
     object-fit: contain;
 }
 
 .servicio-card h2 {
     margin: 0;
-    font-size: 14px;
+
+    font-size: 15px;
     font-weight: 600;
+
     letter-spacing: 0.08em;
-    color: var(--dorado);
+
+    color: #BF8F28;
 }
 
 .servicio-card p {
     margin: 0;
-    font-size: 11px;
+
+    font-size: 13px;
     line-height: 1.6;
+
     color: #cfc9b6;
 }
 
 .servicios-cta {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
     align-items: center;
-    gap: 10px;
-    padding: 12px 36px;
-    border: 1px solid var(--dorado);
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 14px 36px;
+
+    border: 1px solid var(--acento);
     border-radius: 6px;
-    color: var(--dorado);
+
+    color: var(--acento);
+
     text-decoration: none;
-    font-size: 12px;
+
+    font-size: 13px;
     letter-spacing: 0.1em;
-    transition: background 0.2s, color 0.2s;
+
+    transition: background 0.3s, color 0.3s;
 }
 
 .servicios-cta:hover,
 .servicios-cta:focus-visible {
-    background: var(--dorado);
+    background: var(--acento);
     color: #111;
+}
+
+.servicios-cta span {
+    transition: transform 0.3s;
+}
+
+.servicios-cta:hover span {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        max-width: 700px;
+        gap: 20px;
+    }
+
+    .servicios-header h1 {
+        font-size: 34px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .servicios-page {
+        padding: 40px 18px;
+    }
+
+    .servicios-header {
+        margin-bottom: 30px;
+    }
+
+    .servicios-header h1 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+
+    .servicios-lema {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+
+        max-width: 380px;
+
+        gap: 18px;
+        margin-bottom: 35px;
+    }
+
+    .servicio-card {
+        min-height: 220px;
+        padding: 25px 20px;
+    }
+
+    .servicio-card img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .servicio-card h2 {
+        font-size: 14px;
+    }
+
+    .servicio-card p {
+        font-size: 12px;
+    }
+
+    .servicios-cta {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 20px;
+    }
+
 }
