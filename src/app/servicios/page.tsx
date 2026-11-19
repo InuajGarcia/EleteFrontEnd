@@ -26,24 +26,35 @@ const servicios = [
 
 export default function Servicios() {
     return (
-        <main className="servicios-page">
-            <p className="servicios-eyebrow">SERVICIOS</p>
-            <h1 className="servicios-marca">ELETÉ</h1>
-            <p className="servicios-lema">ATENCIÓN PREMIUM PARA CADA VEHÍCULO</p>
 
-            <section className="servicios-grid">
-                {servicios.map((s) => (
-                    <article className="servicio-card" key={s.titulo}>
-                        <img src={s.icono} alt="" />
-                        <h2>{s.titulo}</h2>
-                        <p>{s.texto}</p>
-                    </article>
-                ))}
+        <div className="Servicios">
+            
+            <section className="hero">
+
+                <main className="servicios-page">
+                    <h1> Servicios </h1>
+                    <p className="servicios-lema">ATENCIÓN PREMIUM PARA CADA VEHÍCULO</p>
+
+
+                    <section className="servicios-grid">
+
+                        
+                        {servicios.map((s) => (
+                            <article className="servicio-card" key={s.titulo}>
+                                <img src={s.icono} alt="" />
+                                <h2>{s.titulo}</h2>
+                                <p>{s.texto}</p>
+                            </article>
+                        ))}
+                    </section>
+
+                    <Link href="/contactanos" className="servicios-cta">
+                        CONTACTAR ASESOR <span>➜</span>
+                    </Link>
+                </main>
+
             </section>
 
-            <Link href="/contactanos" className="servicios-cta">
-                CONTACTAR ASESOR <span>➜</span>
-            </Link>
-        </main>
+        </div>
     );
 }

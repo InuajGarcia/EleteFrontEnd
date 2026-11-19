@@ -5,30 +5,6 @@
     text-align: center;
 }
 
-.servicios-eyebrow {
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: 0.3em;
-    color: #fff;
-    font-weight: 300;
-}
-
-.servicios-marca {
-    margin: 4px 0 8px;
-    font-family: var(--fuente-titulo);
-    font-size: clamp(56px, 9vw, 92px);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--dorado);
-}
-
-.servicios-lema {
-    margin: 0 0 48px;
-    font-size: 13px;
-    letter-spacing: 0.25em;
-    color: var(--dorado);
-}
-
 .servicios-grid {
     max-width: 960px;
     margin: 0 auto 48px;

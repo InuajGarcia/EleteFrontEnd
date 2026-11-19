@@ -21,11 +21,17 @@ html {
 body {
   margin: 0;
   padding: 0;
+  min-width: 320px;
   background-color: var(--fondo);
   color: var(--texto);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+main{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 h1, h2, h3 {
   margin-top: 0;
@@ -141,8 +147,8 @@ body {
 .navbar-user {
   justify-self: end;
 
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
 
   display: grid;
   place-items: center;

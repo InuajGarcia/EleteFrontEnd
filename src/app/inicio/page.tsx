@@ -25,7 +25,7 @@ const carros = [
     }
 ];
 
-export default function Inicio() {
+export default function inicio() {
 
     return (
 
@@ -35,11 +35,10 @@ export default function Inicio() {
 
             <section className="hero">
 
-                <p className="hero-subtitle">
-                    EXCELENCIA
-                </p>
+                <h1> EXCELENCIA </h1>
+                
 
-                <h1>ELETÉ</h1>
+                <h2>ELETÉ</h2>
 
                 <p className="hero-description">
                     LUJO · POTENCIA · PRESTIGIO
