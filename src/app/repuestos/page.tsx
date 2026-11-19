@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Suspense } from "react";
+import CatalogoRepuestos from "./CatalogoRepuestos";
 import styles from "./repuestos.module.css";
 
 export default function repuestos () {
@@ -9,39 +10,15 @@ export default function repuestos () {
 
             <section className={styles["hero"]}>
 
-                <div className={styles["text-container"]}>
-
-                    <h1> Repuestos </h1>
-
-                    <h2> Nombre del carro </h2>
-
-                </div>
-
-                <div className={styles["information-panel"]}>
-
-                    <div className={styles["catalogue"]}>
-
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-                        <div className={styles["spare-parts-container"]}></div>
-
-                </div>
-
-                </div>
+                {/* Suspense: el catalogo lee el carro desde la direccion (?vehiculo=...) */}
+                <Suspense fallback={<p className={styles["ayuda"]}>Cargando...</p>}>
+                    <CatalogoRepuestos />
+                </Suspense>
 
             </section>
-
 
         </section>
 
     )
-    
+
 }

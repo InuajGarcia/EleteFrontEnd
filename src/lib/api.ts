@@ -27,6 +27,35 @@ export type MensajeContacto = {
   mensaje: string;
 };
 
+// Solicitudes del contrato: POST /repuestos, /asesoria y /financiacion
+export type SolicitudRepuesto = {
+  nombre: string;
+  telefono: string;
+  email?: string;
+  vehiculo: string;
+  repuesto: string;
+  mensaje?: string;
+};
+
+export type SolicitudAsesoria = {
+  nombre: string;
+  telefono: string;
+  email?: string;
+  vehiculo?: string;
+  mensaje?: string;
+};
+
+export type SolicitudFinanciacion = {
+  nombre: string;
+  telefono: string;
+  email?: string;
+  vehiculo: string;
+  ingresos?: number;
+  cuotaInicial?: number;
+  plazo?: number;
+  mensaje?: string;
+};
+
 async function pedir<T>(ruta: string): Promise<T> {
   // no-store: siempre trae los datos actuales de Mongo
   const r = await fetch(`${API_URL}${ruta}`, { cache: "no-store" });
@@ -53,6 +82,24 @@ export async function enviarContacto(datos: MensajeContacto) {
   }
   return r.json();
 }
+
+// Envía un JSON por POST y devuelve la respuesta (201 si se guardó)
+async function enviar(ruta: string, datos: object) {
+  const r = await fetch(`${API_URL}${ruta}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos),
+  });
+  if (!r.ok) {
+    throw new Error(`No se pudo enviar la solicitud (${r.status})`);
+  }
+  return r.json();
+}
+
+export const enviarRepuesto = (d: SolicitudRepuesto) => enviar("/repuestos", d);
+export const enviarAsesoria = (d: SolicitudAsesoria) => enviar("/asesoria", d);
+export const enviarFinanciacion = (d: SolicitudFinanciacion) =>
+  enviar("/financiacion", d);
 
 export function formatoPrecio(v: Vehiculo) {
   return `${v.moneda} ${v.precio.toLocaleString("en-US")}`;

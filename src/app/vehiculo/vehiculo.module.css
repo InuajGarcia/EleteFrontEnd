@@ -66,6 +66,9 @@
 /* Botones */
 
 .gold-button {
+    display: inline-block;
+    text-align: center;
+
     background-color: #BF8F28;
     color: #101114;
 

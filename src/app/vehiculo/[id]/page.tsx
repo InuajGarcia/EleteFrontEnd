@@ -20,6 +20,9 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
         );
     }
 
+    // Nombre del carro para llevarlo a los formularios (?vehiculo=...)
+    const nombre = encodeURIComponent(`${carro.marca} ${carro.modelo}`);
+
     return (
         <div className={styles["information-panel"]}>
 
@@ -44,8 +47,9 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
             <p>{carro.disponible ? "Disponible" : "No disponible"}</p>
 
             <div className={styles["double-object"]}>
-                <button className={styles["gold-button"]}> Comprar </button>
-                <button className={styles["gold-button"]}> Ver Repuestos </button>
+                <Link href={`/asesoria?vehiculo=${nombre}`} className={styles["gold-button"]}> Comprar </Link>
+                <Link href={`/financiacion?vehiculo=${nombre}`} className={styles["gold-button"]}> Financiar </Link>
+                <Link href={`/repuestos?vehiculo=${nombre}`} className={styles["gold-button"]}> Ver Repuestos </Link>
             </div>
 
         </div>

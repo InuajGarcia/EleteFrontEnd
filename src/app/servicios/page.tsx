@@ -5,21 +5,25 @@ import styles from "./servicios.module.css";
 const servicios = [
     {
         titulo: "REPUESTOS",
+        href: "/repuestos",
         icono: "/images/iconoRepuestos.png",
         texto: "Accede a las piezas originales y de alta calidad para tu vehículo."
     },
     {
         titulo: "ASESORÍA",
+        href: "/asesoria",
         icono: "/images/iconoAsesoria.png",
         texto: "Comunícate directamente con un especialista."
     },
     {
         titulo: "FINANCIACIÓN",
+        href: "/financiacion",
         icono: "/images/icono-financiacion.svg",
         texto: "Opciones de pago adaptadas a tus necesidades."
     },
     {
         titulo: "VENTA Y COMPRA",
+        href: "/inventario",
         icono: "/images/icono-venta.svg",
         texto: "Compra, vende y disfruta del lujo con el respaldo de nuestros especialistas."
     }
@@ -51,7 +55,8 @@ export default function Servicios() {
 
                     {servicios.map((s) => (
 
-                        <article
+                        <Link
+                            href={s.href}
                             className={styles["servicio-card"]}
                             key={s.titulo}
                         >
@@ -69,7 +74,7 @@ export default function Servicios() {
                                 {s.texto}
                             </p>
 
-                        </article>
+                        </Link>
 
                     ))}
 

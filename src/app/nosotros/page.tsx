@@ -70,7 +70,7 @@ export default function Nosotros() {
 
             <div>
 
-                <Link href="/" className={styles["gold-button"]}>
+                <Link href="/inicio" className={styles["gold-button"]}>
                     INICIO <span aria-hidden="true">➜</span>
                 </Link>
 

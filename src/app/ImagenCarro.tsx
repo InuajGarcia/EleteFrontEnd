@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 const REEMPLAZO = "/images/carro-placeholder.svg";
 
+/* La foto propia puede estar en cualquiera de estos formatos */
+const EXTENSIONES = ["jpg", "png", "webp"];
+
 /* Fotos que ya estan en el proyecto, por marca y modelo.
    Si el carro no tiene una foto propia (carros/<id>.jpg), se usa esta; y si
    tampoco hay, se muestra la imagen de reemplazo. */
@@ -15,7 +18,7 @@ const FOTOS_POR_MODELO: Record<string, string> = {
     "aston martin db12": "/images/paginaPrincipal5.png",
 };
 
-/* Foto de un carro: carros/<id>.jpg -> foto por modelo -> imagen de reemplazo */
+/* Foto de un carro: carros/<id>.jpg|png|webp -> foto por modelo -> imagen de reemplazo */
 export default function ImagenCarro({
     id,
     alt,
@@ -25,11 +28,14 @@ export default function ImagenCarro({
     alt: string;
     modelo?: string;
 }) {
-    const propia = `/images/carros/${id}.jpg`;
     const porModelo = modelo ? FOTOS_POR_MODELO[modelo.toLowerCase()] : undefined;
 
     // Orden de intentos: foto propia, foto por modelo, reemplazo
-    const opciones = [propia, ...(porModelo ? [porModelo] : []), REEMPLAZO];
+    const opciones = [
+        ...EXTENSIONES.map((ext) => `/images/carros/${id}.${ext}`),
+        ...(porModelo ? [porModelo] : []),
+        REEMPLAZO,
+    ];
 
     const [intento, setIntento] = useState(0);
     const ref = useRef<HTMLImageElement>(null);
@@ -47,6 +53,7 @@ export default function ImagenCarro({
             ref={ref}
             src={opciones[intento]}
             alt={alt}
+            loading="lazy"
             onError={() => {
                 if (intento < opciones.length - 1) setIntento(intento + 1);
             }}

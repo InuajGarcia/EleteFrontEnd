@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { getDestacados, formatoPrecio } from "@/lib/api";
-import ImagenCarro from "../ImagenCarro";
+import { getDestacados } from "@/lib/api";
+import TarjetaCarro from "./TarjetaCarro";
 import styles from "./inventario.module.css";
 
 // Pide al backend los carros destacados: GET /vehiculos/destacados (MongoDB)
@@ -20,34 +20,7 @@ async function Catalogo() {
     return (
         <div className={styles["catalogue"]}>
             {carros.map((c) => (
-                <Link
-                    key={c.id}
-                    href={`/vehiculo/${c.id}`}
-                    className={styles["car-container"]}
-                >
-                    <div className={styles["car-photo"]}>
-                        <ImagenCarro
-                            id={c.id}
-                            modelo={`${c.marca} ${c.modelo}`}
-                            alt={`${c.marca} ${c.modelo}`}
-                        />
-                    </div>
-
-                    <h4>{c.marca} {c.modelo}</h4>
-
-                    <p className={styles["car-data"]}>
-                        <span aria-hidden="true">📅</span> {c.año}
-                    </p>
-                    <p className={styles["car-data"]}>
-                        <span aria-hidden="true">⏱</span> {c.kilometraje.toLocaleString("en-US")} km
-                    </p>
-
-                    <h5>{formatoPrecio(c)}</h5>
-
-                    <span className={styles["gold-button"]}>
-                        Ver Detalles <span aria-hidden="true">➜</span>
-                    </span>
-                </Link>
+                <TarjetaCarro key={c.id} c={c} />
             ))}
         </div>
     );
@@ -70,6 +43,10 @@ export default function inventario() {
                     <Suspense fallback={<p className={styles["mensaje"]}>Cargando vehículos...</p>}>
                         <Catalogo />
                     </Suspense>
+
+                    <Link href="/inventario/todos" className={styles["ver-todo"]}>
+                        VER TODO EL INVENTARIO <span aria-hidden="true">➜</span>
+                    </Link>
 
                 </div>
             </section>

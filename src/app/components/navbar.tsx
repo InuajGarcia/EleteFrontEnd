@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useUsuario } from "@/lib/usuario";
 
 const enlaces = [
     { href: "/inicio", texto: "Inicio" },
@@ -18,6 +19,9 @@ export default function Navbar() {
 
     /* En celular el menu se abre y se cierra con la hamburguesa */
     const [abierto, setAbierto] = useState(false);
+
+    /* Si el usuario tiene foto de perfil, se muestra en lugar del icono */
+    const usuario = useUsuario();
 
     if (pathname === "/login" || pathname === "/register") {
         return null;
@@ -36,10 +40,14 @@ export default function Navbar() {
 
             <Link href="/informacionUsuario" className="navbar-perfil">
               <span className="navbar-user" role="img" aria-label="Cuenta">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z" />
-                </svg>
+                {usuario?.foto ? (
+                  <img src={usuario.foto} alt="" className="navbar-foto" />
+                ) : (
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z" />
+                  </svg>
+                )}
               </span>
             </Link>
 

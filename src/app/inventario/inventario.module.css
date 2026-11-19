@@ -134,3 +134,54 @@
 .car-container:hover .gold-button {
     background-color: #e0b04a;
 }
+
+/* Enlace a la lista completa */
+.ver-todo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 30px;
+
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #BF8F28;
+    padding-bottom: 4px;
+}
+
+.ver-todo:hover {
+    color: #BF8F28;
+}
+
+/* Buscador de la lista completa */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.filtros input,
+.filtros select {
+    flex: 1 1 220px;
+    padding: 12px 14px;
+
+    background: #1c1c1c;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+
+    color: #fff;
+    font-size: 16px;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+    outline: none;
+    border-color: #BF8F28;
+}
+
+.cuenta {
+    margin: 16px 0 0;
+    color: #cfc9b6;
+}
