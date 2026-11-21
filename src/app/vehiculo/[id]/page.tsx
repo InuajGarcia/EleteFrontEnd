@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { getVehiculo, formatoPrecio } from "@/lib/api";
 import ImagenCarro from "../../ImagenCarro";
+import { FICHAS, TRACCION } from "@/lib/fichas";
 import styles from "../vehiculo.module.css";
 
 // Detalle de un carro: GET /vehiculos/{id}
@@ -23,10 +24,31 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
     // Nombre del carro para llevarlo a los formularios (?vehiculo=...)
     const nombre = encodeURIComponent(`${carro.marca} ${carro.modelo}`);
 
+    const ficha = FICHAS[carro.id];
+    const datos: { etiqueta: string; valor: string; unidad?: string }[] = [];
+    if (ficha) {
+        datos.push({ etiqueta: "Potencia", valor: ficha.potencia.toLocaleString("en-US"), unidad: "hp" });
+        datos.push({ etiqueta: "0 - 100 km/h", valor: ficha.cero100.toFixed(1), unidad: "s" });
+        if (ficha.vmax) datos.push({ etiqueta: "Velocidad máx.", valor: ficha.vmax.toString(), unidad: "km/h" });
+        datos.push({ etiqueta: "Tracción", valor: TRACCION[ficha.traccion] ?? ficha.traccion });
+    }
+    datos.push({ etiqueta: "Año", valor: String(carro.año) });
+    datos.push({ etiqueta: "Kilometraje", valor: carro.kilometraje.toLocaleString("en-US"), unidad: "km" });
+    datos.push({ etiqueta: "Color", valor: carro.color });
+
     return (
         <div className={styles["information-panel"]}>
 
+            <div className={styles["etiquetas"]}>
+                <span className={styles["etiqueta"]}> {carro.categoria} </span>
+                {carro.destacado && <span className={styles["etiqueta"]}> ★ Destacado </span>}
+                <span className={carro.disponible ? styles["etiqueta-ok"] : styles["etiqueta-no"]}>
+                    {carro.disponible ? "● Disponible" : "● No disponible"}
+                </span>
+            </div>
+
             <h1> {carro.marca} {carro.modelo} </h1>
+            <p className={styles["subtitulo"]}> {carro.marca} · {carro.año} · {carro.color} </p>
 
             <div className={styles["car-photo"]}>
                 <ImagenCarro
@@ -36,20 +58,40 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
                 />
             </div>
 
-            <h2> Informacion del carro </h2>
+            <div className={styles["precio-fila"]}>
+                <span className={styles["precio-etiqueta"]}> Precio </span>
+                <span className={styles["price"]}>{formatoPrecio(carro)}</span>
+            </div>
 
-            <p>
-                Año {carro.año} · {carro.kilometraje.toLocaleString("en-US")} km ·{" "}
-                {carro.color} · {carro.categoria}
-            </p>
-            <p>{carro.descripcion}</p>
-            <h2 className={styles["price"]}>{formatoPrecio(carro)}</h2>
-            <p>{carro.disponible ? "Disponible" : "No disponible"}</p>
+            <h2> Ficha técnica </h2>
+            <div className={styles["ficha"]}>
+                {datos.map((d) => (
+                    <div key={d.etiqueta} className={styles["dato"]}>
+                        <span className={styles["dato-etiqueta"]}>{d.etiqueta}</span>
+                        <span className={styles["dato-valor"]}>
+                            {d.valor}
+                            {d.unidad && <small> {d.unidad}</small>}
+                        </span>
+                    </div>
+                ))}
+            </div>
+            {ficha && (
+                <p className={styles["motor"]}>
+                    <span> Motor </span> {ficha.motor}
+                </p>
+            )}
+
+            {carro.descripcion && (
+                <>
+                    <h2> Descripción </h2>
+                    <p className={styles["descripcion"]}>{carro.descripcion}</p>
+                </>
+            )}
 
             <div className={styles["double-object"]}>
                 <Link href={`/asesoria?vehiculo=${nombre}`} className={styles["gold-button"]}> Comprar </Link>
                 <Link href={`/financiacion?vehiculo=${nombre}`} className={styles["gold-button"]}> Financiar </Link>
-                <Link href={`/repuestos?vehiculo=${nombre}&id=${carro.id}`} className={styles["gold-button"]}> Ver Repuestos </Link>
+                <Link href={`/repuestos?vehiculo=${nombre}&id=${carro.id}`} className={styles["outline-button"]}> Ver Repuestos </Link>
             </div>
 
         </div>

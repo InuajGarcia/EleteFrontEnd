@@ -42,8 +42,10 @@
 }
 
 .hero .price {
-    font-size: clamp(24px, 4vw, 32px);
+    font-size: clamp(26px, 4.5vw, 36px);
     color: #BF8F28;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .hero p {
@@ -96,7 +98,53 @@
     margin-top: 22px;
 }
 
+/* Etiquetas superiores */
+.etiquetas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.etiqueta, .etiqueta-ok, .etiqueta-no {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px; border: 1px solid #564115; color: #e0b04a;
+}
+.etiqueta-ok { border-color: #2f6b3d; color: #6fcf86; }
+.etiqueta-no { border-color: #7a2d2d; color: #e07a7a; }
+.hero .subtitulo { margin: -6px 0 20px; color: #9a9a9a; letter-spacing: 1px; }
+
+/* Precio */
+.precio-fila {
+    display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    margin-top: 22px; padding: 16px 20px; border-radius: 12px;
+    background: linear-gradient(90deg, rgba(191,143,40,0.16), rgba(191,143,40,0.02));
+    border: 1px solid #564115;
+}
+.precio-etiqueta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #9a9a9a; }
+
+/* Ficha técnica */
+.ficha {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;
+}
+.dato {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 14px 16px; border-radius: 12px;
+    background: #121010; border: 1px solid #2c2415;
+    transition: border-color 0.3s, transform 0.3s;
+}
+.dato:hover { border-color: #BF8F28; transform: translateY(-2px); }
+.dato-etiqueta { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #9a9a9a; }
+.dato-valor { font-size: clamp(18px, 3vw, 24px); font-weight: bold; color: #fff; }
+.dato-valor small { font-size: 13px; font-weight: normal; color: #BF8F28; }
+.hero .motor { margin-top: 14px; padding: 12px 16px; border-left: 3px solid #BF8F28; background: #121010; border-radius: 0 10px 10px 0; }
+.hero .motor span { display: inline-block; margin-right: 10px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #9a9a9a; }
+.hero .descripcion { line-height: 1.6; }
+
+.outline-button {
+    display: inline-block; text-align: center; padding: 12px 26px; border-radius: 6px;
+    border: 2px solid #BF8F28; color: #BF8F28; font-weight: bold; letter-spacing: 1px; transition: 0.3s;
+}
+.outline-button:hover { background-color: rgba(191,143,40,0.15); transform: translateY(-2px); }
+
 @media (max-width: 480px) {
+
+    .outline-button { width: 100%; }
+
 
     .double-object {
         flex-direction: column;
