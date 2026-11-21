@@ -69,6 +69,9 @@
     width: 64px;
     height: 64px;
     margin-bottom: 6px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #fff;
 }
 
 .parte-dato {
@@ -139,4 +142,19 @@
     font-size: 20px;
     letter-spacing: 1px;
     color: #BF8F28;
+}
+
+.foto-carro {
+    margin-top: 16px;
+    max-width: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1d1d1d;
+}
+
+.foto-carro img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }

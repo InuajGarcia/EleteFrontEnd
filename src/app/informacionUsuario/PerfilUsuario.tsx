@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { guardarUsuario, useUsuario } from "@/lib/usuario";
+import { actualizarPerfil, cerrarSesion as salir, useUsuario } from "@/lib/usuario";
 import styles from "./informacionUsuario.module.css";
 
 // Reduce la foto elegida a un cuadrado pequeno para que quepa en el navegador
@@ -58,16 +58,19 @@ export default function PerfilUsuario() {
         );
     }
 
-    function guardar(e: React.FormEvent<HTMLFormElement>) {
+    async function guardar(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if (!usuario) return;
         const d = new FormData(e.currentTarget);
-        guardarUsuario({
-            ...usuario,
-            nombre: String(d.get("nombre") ?? "").trim(),
-            telefono: String(d.get("telefono") ?? "").trim(),
-        });
-        setMensaje("Cambios guardados.");
+        try {
+            await actualizarPerfil({
+                nombre: String(d.get("nombre") ?? "").trim(),
+                telefono: String(d.get("telefono") ?? "").trim(),
+            });
+            setMensaje("Cambios guardados.");
+        } catch (err) {
+            setMensaje(err instanceof Error ? err.message : "No se pudieron guardar los cambios.");
+        }
     }
 
     async function cambiarFoto(e: React.ChangeEvent<HTMLInputElement>) {
@@ -75,15 +78,15 @@ export default function PerfilUsuario() {
         if (!archivo || !usuario) return;
         try {
             const foto = await reducirFoto(archivo);
-            guardarUsuario({ ...usuario, foto });
+            await actualizarPerfil({ foto });
             setMensaje("Foto actualizada.");
-        } catch {
-            setMensaje("No se pudo usar esa imagen. Prueba con otra.");
+        } catch (err) {
+            setMensaje(err instanceof Error ? err.message : "No se pudo usar esa imagen. Prueba con otra.");
         }
     }
 
     function cerrarSesion() {
-        guardarUsuario(null);
+        salir();
         router.push("/login");
     }
 

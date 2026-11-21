@@ -3,14 +3,18 @@
 import { useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import FormularioSolicitud from "../components/FormularioSolicitud";
-import { REPUESTOS, type Repuesto } from "./catalogo";
+import { repuestosDe, type Repuesto } from "./catalogo";
+import ImagenCarro from "../ImagenCarro";
 import styles from "./repuestos.module.css";
 
 // Lista de repuestos. "Agregar" abre el formulario para pedir ese repuesto.
 export default function CatalogoRepuestos() {
     // El carro viene de la pagina del vehiculo: /repuestos?vehiculo=Ferrari SF90 Stradale
-    const vehiculo = useSearchParams().get("vehiculo");
+    const parametros = useSearchParams();
+    const vehiculo = parametros.get("vehiculo");
+    const idCarro = parametros.get("id");
 
+    const lista = repuestosDe(vehiculo);
     const [elegido, setElegido] = useState<Repuesto | null>(null);
     const formulario = useRef<HTMLDivElement>(null);
 
@@ -25,17 +29,34 @@ export default function CatalogoRepuestos() {
             <div className={styles["text-container"]}>
                 <h1> REPUESTOS </h1>
                 <h2> {vehiculo ?? "Para todos los vehículos"} </h2>
+                {idCarro && vehiculo && (
+                    <div className={styles["foto-carro"]}>
+                        <ImagenCarro id={idCarro} alt={vehiculo} modelo={vehiculo} />
+                    </div>
+                )}
             </div>
 
             <div className={styles["information-panel"]}>
 
                 <div className={styles["catalogue"]}>
-                    {REPUESTOS.map((r) => (
+                    {lista.map((r) => (
                         <div
                             key={r.id}
                             className={`${styles["spare-parts-container"]} ${elegido?.id === r.id ? styles["elegido"] : ""}`}
                         >
-                            <img src="/images/icono-repuesto.svg" alt="" className={styles["parte-icono"]} />
+                            <img
+                                src={r.imagen}
+                                alt={r.nombre}
+                                referrerPolicy="no-referrer"
+                                loading="lazy"
+                                className={styles["parte-icono"]}
+                                onError={(e) => {
+                                    // 1) archivo local  2) enlace original  3) icono
+                                    const img = e.currentTarget;
+                                    if (!img.dataset.paso) { img.dataset.paso = "1"; img.src = r.respaldo; }
+                                    else if (img.dataset.paso === "1") { img.dataset.paso = "2"; img.src = "/images/icono-repuesto.svg"; }
+                                }}
+                            />
 
                             <p className={styles["parte-dato"]}>
                                 <small>CATEGORÍA</small>

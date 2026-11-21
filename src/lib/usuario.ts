@@ -2,11 +2,14 @@
 
 import { useMemo, useSyncExternalStore } from "react";
 
-// Sesion de usuario guardada en el navegador (localStorage).
-// El backend del proyecto (contrato de SwaggerHub) no tiene rutas de usuarios,
-// asi que el perfil vive solo en este navegador. La contrasena NO se guarda.
+// Sesion de usuario. El registro, el login y el perfil se hacen contra el backend
+// (/auth/registro, /auth/login, /auth/perfil). En el navegador solo se guarda el
+// token y los datos publicos del usuario; la contrasena NO se guarda.
+import { API_URL } from "./api";
 const CLAVE = "elete_usuario";
 const EVENTO = "elete-usuario";
+
+const CLAVE_TOKEN = "elete_token";
 
 export type Usuario = {
     correo: string;
@@ -35,11 +38,52 @@ export function guardarUsuario(u: Usuario | null) {
     window.dispatchEvent(new Event(EVENTO));
 }
 
-// Entrar o registrarse con un correo: si ya habia datos de ese correo se conservan
-export function iniciarSesion(correo: string) {
-    const previo = leerUsuario();
-    const mismo = previo && previo.correo.toLowerCase() === correo.toLowerCase();
-    guardarUsuario(mismo ? { ...previo, correo } : { correo });
+async function pedir(ruta: string, opciones: RequestInit = {}) {
+    let r: Response;
+    try {
+        r = await fetch(`${API_URL}${ruta}`, {
+            ...opciones,
+            headers: { "Content-Type": "application/json", ...(opciones.headers ?? {}) },
+        });
+    } catch {
+        throw new Error("No se pudo conectar con el servidor. Intenta de nuevo en un momento.");
+    }
+    const datos = await r.json().catch(() => ({}));
+    if (!r.ok) {
+        const m = Array.isArray(datos.message) ? datos.message[0] : datos.message;
+        throw new Error(m || "Ocurrió un error. Intenta de nuevo.");
+    }
+    return datos;
+}
+
+function abrirSesion(res: { token: string; usuario: Usuario }) {
+    localStorage.setItem(CLAVE_TOKEN, res.token);
+    guardarUsuario(res.usuario);
+}
+
+export async function registrarUsuario(correo: string, clave: string) {
+    abrirSesion(await pedir("/auth/registro", { method: "POST", body: JSON.stringify({ correo, clave }) }));
+}
+
+export async function iniciarSesion(correo: string, clave: string) {
+    abrirSesion(await pedir("/auth/login", { method: "POST", body: JSON.stringify({ correo, clave }) }));
+}
+
+export function cerrarSesion() {
+    localStorage.removeItem(CLAVE_TOKEN);
+    guardarUsuario(null);
+}
+
+// Guarda nombre, telefono o foto en el backend
+export async function actualizarPerfil(cambios: Partial<Pick<Usuario, "nombre" | "telefono" | "foto">>) {
+    const token = localStorage.getItem(CLAVE_TOKEN);
+    if (!token) throw new Error("Tu sesión expiró. Inicia sesión de nuevo.");
+    const u = await pedir("/auth/perfil", {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+        body: JSON.stringify(cambios),
+    });
+    guardarUsuario(u);
 }
 
 function suscribir(aviso: () => void) {

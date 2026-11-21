@@ -58,9 +58,11 @@
 }
 
 .car-photo img {
+    display: block;
     width: 100%;
-    max-height: 340px;
-    object-fit: contain;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* Botones */

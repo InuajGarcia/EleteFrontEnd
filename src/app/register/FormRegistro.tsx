@@ -1,19 +1,30 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { iniciarSesion } from "@/lib/usuario";
+import { registrarUsuario } from "@/lib/usuario";
 import styles from "./register.module.css";
 
 export default function FormRegistro() {
     const router = useRouter();
+    const [error, setError] = useState("");
+    const [enviando, setEnviando] = useState(false);
 
-    function registrar(e: React.FormEvent<HTMLFormElement>) {
+    async function registrar(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const d = new FormData(e.currentTarget);
         const correo = String(d.get("correo") ?? "").trim();
 
-        iniciarSesion(correo);
-        router.push("/inicio");
+        const clave = String(d.get("clave") ?? "");
+        setError("");
+        setEnviando(true);
+        try {
+            await registrarUsuario(correo, clave);
+            router.push("/inicio");
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "No se pudo registrar.");
+            setEnviando(false);
+        }
     }
 
     return (
@@ -50,12 +61,14 @@ export default function FormRegistro() {
 
             </div>
 
+            {error && <p className={styles["error"]}>{error}</p>}
+
             <div className={styles["double-object"]}>
 
                 <span />
 
-                <button type="submit" className={styles["key-button"]}>
-                    Registrarme
+                <button type="submit" className={styles["key-button"]} disabled={enviando}>
+                    {enviando ? "Registrando..." : "Registrarme"}
                 </button>
 
             </div>

@@ -9,8 +9,9 @@ import styles from "./login.module.css";
 export default function FormLogin() {
     const router = useRouter();
     const [error, setError] = useState("");
+    const [enviando, setEnviando] = useState(false);
 
-    function entrar(e: React.FormEvent<HTMLFormElement>) {
+    async function entrar(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const d = new FormData(e.currentTarget);
         const correo = String(d.get("correo") ?? "").trim();
@@ -21,8 +22,15 @@ export default function FormLogin() {
             return;
         }
 
-        iniciarSesion(correo);
-        router.push("/inicio");
+        setError("");
+        setEnviando(true);
+        try {
+            await iniciarSesion(correo, clave);
+            router.push("/inicio");
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "No se pudo iniciar sesión.");
+            setEnviando(false);
+        }
     }
 
     return (
@@ -67,8 +75,8 @@ export default function FormLogin() {
                     <Link href="/register">Regístrate</Link> aquí
                 </p>
 
-                <button type="submit" className={styles["key-button"]}>
-                    Continuar
+                <button type="submit" className={styles["key-button"]} disabled={enviando}>
+                    {enviando ? "Entrando..." : "Continuar"}
                 </button>
 
             </div>

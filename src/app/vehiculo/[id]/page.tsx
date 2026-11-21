@@ -49,7 +49,7 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
             <div className={styles["double-object"]}>
                 <Link href={`/asesoria?vehiculo=${nombre}`} className={styles["gold-button"]}> Comprar </Link>
                 <Link href={`/financiacion?vehiculo=${nombre}`} className={styles["gold-button"]}> Financiar </Link>
-                <Link href={`/repuestos?vehiculo=${nombre}`} className={styles["gold-button"]}> Ver Repuestos </Link>
+                <Link href={`/repuestos?vehiculo=${nombre}&id=${carro.id}`} className={styles["gold-button"]}> Ver Repuestos </Link>
             </div>
 
         </div>
