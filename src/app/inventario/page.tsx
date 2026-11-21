@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { getDestacados, formatoPrecio } from "@/lib/api";
-import ImagenCarro from "../ImagenCarro";
+import { getDestacados } from "@/lib/api";
+import TarjetaCarro from "./TarjetaCarro";
 import styles from "./inventario.module.css";
 
 // Pide al backend los carros destacados: GET /vehiculos/destacados (MongoDB)
@@ -10,25 +10,17 @@ async function Catalogo() {
     try {
         carros = (await getDestacados()).slice(0, 4);
     } catch {
-        return <p>No se pudo conectar con el servidor. Intenta de nuevo.</p>;
+        return <p className={styles["mensaje"]}>No se pudo conectar con el servidor. Intenta de nuevo.</p>;
     }
 
     if (carros.length === 0) {
-        return <p>Todavía no hay vehículos destacados.</p>;
+        return <p className={styles["mensaje"]}>Todavía no hay vehículos destacados.</p>;
     }
 
     return (
         <div className={styles["catalogue"]}>
             {carros.map((c) => (
-                <Link
-                    key={c.id}
-                    href={`/vehiculo/${c.id}`}
-                    className={styles["car-container"]}
-                >
-                    <ImagenCarro id={c.id} alt={`${c.marca} ${c.modelo}`} />
-                    <h4>{c.marca} {c.modelo}</h4>
-                    <h5>{formatoPrecio(c)}</h5>
-                </Link>
+                <TarjetaCarro key={c.id} c={c} />
             ))}
         </div>
     );
@@ -41,16 +33,20 @@ export default function inventario() {
                 <div className={styles["information-panel"]}>
 
                     <div className={styles["items-spacing"]}>
-                        <h1> VEHICULOS </h1>
+                        <h1> VEHÍCULOS </h1>
                         <h2> DESTACADOS </h2>
                     </div>
 
                     <h3> LUJO • POTENCIA • PRESTIGIO </h3>
 
                     {/* Mientras llegan los datos se muestra "Cargando..." */}
-                    <Suspense fallback={<p>Cargando vehículos...</p>}>
+                    <Suspense fallback={<p className={styles["mensaje"]}>Cargando vehículos...</p>}>
                         <Catalogo />
                     </Suspense>
+
+                    <Link href="/inventario/todos" className={styles["ver-todo"]}>
+                        VER TODO EL INVENTARIO <span aria-hidden="true">➜</span>
+                    </Link>
 
                 </div>
             </section>

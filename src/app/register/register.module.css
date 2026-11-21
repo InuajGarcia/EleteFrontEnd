@@ -1,135 +1,137 @@
-/* Contenedor */
-.home-page{
+/* Pagina completa: fondo gris oscuro con la tarjeta al centro */
+.page {
+    min-height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    padding: clamp(14px, 4vw, 48px);
+
+    background: #1c1c1c;
+}
+
+/* Tarjeta: imagen a la izquierda, formulario a la derecha */
+.card {
     width: 100%;
-    min-height: 100%;
+    max-width: 1120px;
+    min-height: min(560px, 80vh);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: #050505;
 }
 
-
-/* Fondo */
+/* Lado de la imagen */
 .hero {
-    min-height: 650px;
+    position: relative;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    padding: clamp(18px, 3vw, 36px);
 
-    text-align: left;
-
-    padding: 80px 20px;
-
-    background: 
-        url("/images/loginregisterFondo.png");       
-
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 45%),
+        url("/images/loginregisterFondo.png") center / cover no-repeat;
 }
 
-
-/* Config de texto */
 .hero h1 {
-    font-size: 70px;
-    letter-spacing: 25px;
-    margin-top: -8px;
-    margin-bottom: 0px;
-    color: #fff4ca;
-    font-weight: bold;
+    margin: 0;
+    font-size: clamp(44px, 6.4vw, 80px);
+    line-height: 1;
+    letter-spacing: clamp(10px, 1.9vw, 24px);
+    color: #F7F0D4;
+    font-weight: 400;
 }
 
 .hero h2 {
-    font-size: 28px;
-    letter-spacing: 1px;
-    margin-top: -8px;
-    margin-bottom: 0px;
+    margin: 10px 0 0;
+    font-size: clamp(12px, 1.6vw, 20px);
+    letter-spacing: 3px;
     color: #F7F0D4;
-    font-weight: normal;
+    font-weight: 300;
 }
 
+/* Lado del formulario */
 .information-panel {
-    width: 980px;
-    height: 1120px;    
-    margin-left: 900px;
-    margin-top: -210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-
-    background-color: #171515;
-
-    padding: 25px;
+    padding: clamp(22px, 4vw, 56px);
 }
 
-/* Espacio para acumular 2 objetos*/
+.information-panel h3 {
+    margin: 0 0 22px;
+    font-size: clamp(30px, 3.4vw, 42px);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Etiqueta + campo */
 .dual-space {
     display: flex;
     flex-direction: column;
-
-    width: 700px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 
-/* Hover de register utilizando el espacio de dual-space jaja*/
-.dual-space:hover .login-box{
-    border-bottom: 3px solid #fff1bb;
+.dual-space label {
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
 }
 
 .login-box {
     width: 100%;
-    height: 45px;
+    height: 46px;
 
     background: transparent;
     border: none;
     border-bottom: 3px solid #dedede;
+    border-radius: 0;
 
     color: #fff;
     font-size: 18px;
 
     outline: none;
 
-    margin-bottom: 30px;
-
-
     transition: border-bottom-color 0.3s ease;
-
 }
 
-.hero h3 {
-    font-size: 42px;
-    color: #fff;
-    
-    margin-top: 200px;
-    margin-bottom: 20px;
-    font-weight: bold;
+.login-box:hover,
+.login-box:focus {
+    border-bottom-color: #fff4ca;
 }
 
-.hero h4 {
+/* Fila inferior: texto de registro y boton */
+.double-object {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 20px;
+
+    margin-top: 6px;
+}
+
+.registro-texto {
+    margin: 0;
     font-size: 18px;
-    color: #fff;
     font-weight: bold;
+    color: #fff;
 }
 
-
-    /* Registrate */
-.hero h5 {
-    font-size: 20px;
-    color: #fff;
-    font-weight: bold;
-}
-
-.hero h6 {
-    font-size: 20px;
+.registro-texto a {
     color: #DFBA3E;
-    margin-left: 5px;
-    margin-right: 5px;
-    font-weight: bold;
+    text-decoration: underline;
 }
 
-.key-button{
+.key-button {
+    display: inline-block;
+
     background-color: #dedede;
     color: #141414;
-    
-    padding: 14px 25px;
-    border-radius: 6px;
-    
-    margin-top: -10px;
-    margin-left: 575px;
+
+    padding: 13px 34px;
+    border-radius: 2px;
 
     font-weight: bold;
     letter-spacing: 1px;
@@ -137,12 +139,36 @@
     transition: 0.3s;
 }
 
-.double-object{
-    display: flex;
-}
-
-
 .key-button:hover {
     background-color: #FFEDA5;
     transform: translateY(-2px);
+}
+
+/* Celular y tablet chica: la imagen pasa arriba */
+@media (max-width: 800px) {
+
+    .card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .hero {
+        min-height: 230px;
+    }
+
+    .double-object {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .key-button {
+        text-align: center;
+    }
+
+}
+
+.error {
+    margin: 0 0 12px;
+    color: #ffb4b4;
+    font-size: 16px;
 }

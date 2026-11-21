@@ -37,7 +37,7 @@ export default function Contactanos() {
 
                 <img
                     className={styles["hero-car"]}
-                    src="/images/auto-contacto.png"
+                    src="/images/paginaPrincipal4.png"
                     alt=""
                 />
 

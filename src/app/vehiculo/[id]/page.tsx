@@ -20,15 +20,21 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
         );
     }
 
+    // Nombre del carro para llevarlo a los formularios (?vehiculo=...)
+    const nombre = encodeURIComponent(`${carro.marca} ${carro.modelo}`);
+
     return (
         <div className={styles["information-panel"]}>
 
-            <div className={styles["double-object"]}>
-                <h1> {carro.marca} {carro.modelo} </h1>
-                <div className={styles["flag"]}></div>
-            </div>
+            <h1> {carro.marca} {carro.modelo} </h1>
 
-            <ImagenCarro id={carro.id} alt={`${carro.marca} ${carro.modelo}`} />
+            <div className={styles["car-photo"]}>
+                <ImagenCarro
+                    id={carro.id}
+                    modelo={`${carro.marca} ${carro.modelo}`}
+                    alt={`${carro.marca} ${carro.modelo}`}
+                />
+            </div>
 
             <h2> Informacion del carro </h2>
 
@@ -37,12 +43,13 @@ async function Detalle({ params }: { params: Promise<{ id: string }> }) {
                 {carro.color} · {carro.categoria}
             </p>
             <p>{carro.descripcion}</p>
-            <h2>{formatoPrecio(carro)}</h2>
+            <h2 className={styles["price"]}>{formatoPrecio(carro)}</h2>
             <p>{carro.disponible ? "Disponible" : "No disponible"}</p>
 
             <div className={styles["double-object"]}>
-                <button className={styles["gold-button"]}> Comprar </button>
-                <button className={styles["gold-button"]}> Ver Repuestos </button>
+                <Link href={`/asesoria?vehiculo=${nombre}`} className={styles["gold-button"]}> Comprar </Link>
+                <Link href={`/financiacion?vehiculo=${nombre}`} className={styles["gold-button"]}> Financiar </Link>
+                <Link href={`/repuestos?vehiculo=${nombre}`} className={styles["gold-button"]}> Ver Repuestos </Link>
             </div>
 
         </div>

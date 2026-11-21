@@ -1,0 +1,162 @@
+/* Paginas de solicitudes (asesoria, financiacion, repuestos) */
+
+.pagina {
+    min-height: 80vh;
+
+    padding: clamp(28px, 5vw, 60px) clamp(14px, 4vw, 24px) 50px;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
+        url("/images/paginaPrincipalFondo.png") center / cover;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: clamp(32px, 6vw, 64px);
+    letter-spacing: clamp(4px, 1vw, 10px);
+    color: #DFBA3E;
+}
+
+.encabezado p {
+    margin: 8px auto 0;
+    max-width: 620px;
+    font-size: clamp(15px, 2vw, 19px);
+    color: #e6e1d0;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    padding: clamp(18px, 3vw, 30px);
+
+    background: #0e0e0e;
+    border: 1px solid rgba(212, 166, 42, 0.45);
+    border-radius: 10px;
+}
+
+.formulario h2 {
+    margin: 0 0 4px;
+    font-size: clamp(20px, 2.6vw, 26px);
+    letter-spacing: 0.08em;
+    color: #d4a62a;
+}
+
+.fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.formulario label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #d4a62a;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+
+    background: #3a3a3a;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    color: #fff;
+    font-size: 15px;
+    resize: vertical;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #d4a62a;
+}
+
+.formulario input[readonly] {
+    opacity: 0.75;
+}
+
+.formulario ::placeholder {
+    color: #9a9a9a;
+}
+
+.boton {
+    align-self: center;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 36px;
+
+    background: #000;
+    border: 1px solid #d4a62a;
+    border-radius: 6px;
+    color: #d4a62a;
+
+    font-size: 14px;
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.boton:hover {
+    background: #d4a62a;
+    color: #111;
+    transform: none;
+}
+
+.boton:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.mensaje-ok,
+.mensaje-error {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.mensaje-ok {
+    color: #c9f0c9;
+    background: rgba(40, 120, 40, 0.3);
+}
+
+.mensaje-error {
+    color: #ffd1d1;
+    background: rgba(160, 40, 40, 0.3);
+}
+
+@media (max-width: 560px) {
+
+    .fila {
+        grid-template-columns: 1fr;
+    }
+
+    .boton {
+        width: 100%;
+        justify-content: center;
+    }
+
+}

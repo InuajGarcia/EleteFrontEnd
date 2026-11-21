@@ -5,22 +5,26 @@ import styles from "./servicios.module.css";
 const servicios = [
     {
         titulo: "REPUESTOS",
+        href: "/repuestos",
         icono: "/images/iconoRepuestos.png",
         texto: "Accede a las piezas originales y de alta calidad para tu vehículo."
     },
     {
         titulo: "ASESORÍA",
+        href: "/asesoria",
         icono: "/images/iconoAsesoria.png",
         texto: "Comunícate directamente con un especialista."
     },
     {
         titulo: "FINANCIACIÓN",
-        icono: "/images/icono-financiacion.png",
+        href: "/financiacion",
+        icono: "/images/icono-financiacion.svg",
         texto: "Opciones de pago adaptadas a tus necesidades."
     },
     {
         titulo: "VENTA Y COMPRA",
-        icono: "/images/icono-venta.png",
+        href: "/inventario",
+        icono: "/images/icono-venta.svg",
         texto: "Compra, vende y disfruta del lujo con el respaldo de nuestros especialistas."
     }
 ];
@@ -36,11 +40,11 @@ export default function Servicios() {
                 </h1>
 
                 <h2>
-                    ELETE
+                    ELETÉ
                 </h2>
 
                 <h3>
-                    --------- ATENCION PREMIUM PARA CADA VEHICULO ---------
+                    ATENCIÓN PREMIUM PARA CADA VEHÍCULO
                 </h3>
 
             </section>
@@ -51,7 +55,8 @@ export default function Servicios() {
 
                     {servicios.map((s) => (
 
-                        <article
+                        <Link
+                            href={s.href}
                             className={styles["servicio-card"]}
                             key={s.titulo}
                         >
@@ -69,7 +74,7 @@ export default function Servicios() {
                                 {s.texto}
                             </p>
 
-                        </article>
+                        </Link>
 
                     ))}
 
@@ -81,7 +86,7 @@ export default function Servicios() {
                 >
                     CONTACTAR ASESOR
 
-                    <span>➜</span>
+                    <span aria-hidden="true">➜</span>
 
                 </Link>
 
